@@ -3,15 +3,15 @@ var app = angular.module("runApp", ["ngRoute"]);
 app.config(function($routeProvider) {
   $routeProvider
     .when("/", {
-      templateUrl: "home.html",
+      templateUrl: "app/home/home.html",
       controller: 'homeCtrl'
     })
     .when("/home", {
-      templateUrl: "home.html",
+      templateUrl: "app/home/home.html",
       controller: 'homeCtrl'
     })
     .when('/search', {
-      templateUrl: "search.html",
+      templateUrl: "app/search/search.html",
       controller: 'searchCtrl'
     })
 });
