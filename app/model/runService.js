@@ -10,8 +10,10 @@ app.factory('runService', function ($log, $http, $q) {
 
 
 
-  var group1 = new Groupf("Group 1", "Center", "Tel Aviv", "Adult", "Running", "Yaron");
-  var group2 = new Groupf("Group 2", "Center", "Ramat Gan", "Adult", "Walking", "Dan");
+  var group1 = new Groupf("Group 1", "Center", "Tel Aviv", "Adult",
+    "Running", "Yaron", "Desc 1");
+  var group2 = new Groupf("Group 2", "Center", "Ramat Gan", "Adult",
+    "Walking", "Dan", "Desc 2");
   groups = [group1, group2];
 
   var types = [{
@@ -28,6 +30,32 @@ app.factory('runService', function ($log, $http, $q) {
     name: 'Walking'
   }];
 
+
+
+  function Groupf(gname, glocation, gcity, gages, gtype, gtrainer, gdesc) {
+    this.gname = gname;
+    this.glocation = glocation;
+    this.gcity = gcity;
+    this.gages = gages;
+    this.gtype = gtype;
+    this.gtrainer = gtrainer;
+    this.gdesc = gdesc;
+    // this.userGroups = [];
+  }
+
+
+  function createGroup(gname, gmanager, garea, gcity, gdesc) {
+
+    // function addTask(text) {
+    var newGroup = new Groupf(gname, garea, gcity, "Adult", "Running", gmanager, gdesc);
+    if (gname === "aaa") {
+      return false;
+    } else {
+      groups.push(newGroup);
+      return true;
+    }
+  }
+
   function User(plainUser) {
     this.uemail = plainUser.uemail;
     this.upassword = plainUser.upassword;
@@ -35,15 +63,6 @@ app.factory('runService', function ($log, $http, $q) {
     //  this.userGroups = [];
   }
 
-  function Groupf(gname, glocation, gcity, gages, gtype, gtrainer) {
-    this.gname = gname;
-    this.glocation = glocation;
-    this.gcity = gcity;
-    this.gages = gages;
-    this.gtype = gtype;
-    this.gtrainer = gtrainer;
-    // this.userGroups = [];
-  }
 
   function Group(plainGroup) {
     this.gname = plainGroup.gname;
@@ -71,7 +90,8 @@ app.factory('runService', function ($log, $http, $q) {
   return {
     users: users,
     groups: groups,
-    types: types
+    types: types,
+    createGroup: createGroup
   }
 
 })

@@ -2,22 +2,22 @@
     {
       "group-name" : "Sigi",
       "group-manager": "Chohen",
-      "Area": "Center",
-      "City": "Tel Aviv",
-       "Comments" : "Hello Sigi"
+      "area": "Center",
+      "city": "Tel Aviv",
+       "desc" : "Hello Sigi"
     },
     {
       "group-name" : "Dan",
       "group-manager": "Ganot",
-      "Area": "North",
-      "City": "Haifa",
-       "Comments" : "Hello Dan"
+      "area": "North",
+      "city": "Haifa",
+       "desc" : "Hello Dan"
       
     },
     {
       "group-name" : "Yafit",
       "group-manager": "Arieli",
-      "Area": "Center",
-      "City": "Ramat Gan",
-       "Comments" : "Hello Yafit"    }
+      "area": "Center",
+      "city": "Ramat Gan",
+       "desc" : "Hello Yafit"    }
   ]

@@ -2,5 +2,41 @@
 
 <div class="container">
   <h1>Run Group</h1>
+  <div class="alert alert-danger" ng-show="invalidGroup">
+      <strong>Error!</strong> Invalid group data.
+</div>
+  <form>
+
+
+    <div class="form-group">
+      <label for="gname">Group Name:</label>
+      <input type="text" class="form-control" id="gname" ng-model="gname">
+    </div>
+    <div class="form-group">
+      <label for="gmanager">Manager:</label>
+      <input type="text" class="form-control" id="gmanager" ng-model="gmanager">
+    </div>
+
+    <div class="form-group">
+        <label for="garea">Area:</label>
+        <input type="text" class="form-control" id="garea" ng-model="garea">
+      </div>
+      <div class="form-group">
+          <label for="gcity">City:</label>
+          <input type="text" class="form-control" id="gcity" ng-model="gcity">
+        </div>
+
+    <div class="form-group">
+        <label for="exampleTextarea">Description</label>
+        <textarea class="form-control" id="exampleTextarea" rows="5" ng-model="gdesc"></textarea>
+      </div>
+
+      
+
+    <button type="submit" class="btn btn-info" ng-click="createGroup()">Create Group</button>
+   
+
+  </form>
+
 
 </div>
