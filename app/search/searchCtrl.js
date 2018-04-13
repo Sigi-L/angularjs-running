@@ -1,4 +1,4 @@
-app.controller("searchCtrl", function($scope, $http, $log, runService) {
+app.controller("searchCtrl", function ($scope, $http, $log, runService) {
 
   $scope.users = runService.users;
   $scope.groups = runService.groups;
@@ -9,7 +9,7 @@ app.controller("searchCtrl", function($scope, $http, $log, runService) {
   $scope.searchLocation = "";
   $scope.selectedType = ""; // $scope.types[0];
 
-  $scope.filterData = function(group) {
+  $scope.filterData = function (group) {
 
     if ((!$scope.selectedType || group.gtype.toLowerCase().includes($scope.selectedType.name.toLowerCase())) &&
       (!$scope.searchCity || group.gcity.toLowerCase().includes($scope.searchCity.toLowerCase()))) {
@@ -18,9 +18,9 @@ app.controller("searchCtrl", function($scope, $http, $log, runService) {
       return false;
     }
   }
-  
+
   $scope.sortProp = "";
-  $scope.changeSort = function(propName) {
+  $scope.changeSort = function (propName) {
     $scope.sortProp = propName;
   }
 

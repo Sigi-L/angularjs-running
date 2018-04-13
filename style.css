@@ -1,18 +1,17 @@
 /* Styles go here */
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: Tahoma;
-  text-align: center;
-  /*align: center;*/
-  /*margin: auto;*/
+    font-family: Tahoma;
+    text-align: center;
+    /*align: center;*/
+    /*margin: auto;*/
 }
 
 form {
-  width: 80%;
-  margin: auto;
+    width: 80%;
+    margin: auto;
 }
-

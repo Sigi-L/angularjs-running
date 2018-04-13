@@ -1,0 +1,23 @@
+[
+    {
+      "group-name" : "Sigi",
+      "group-manager": "Chohen",
+      "Area": "Center",
+      "City": "Tel Aviv",
+       "Comments" : "Hello Sigi"
+    },
+    {
+      "group-name" : "Dan",
+      "group-manager": "Ganot",
+      "Area": "North",
+      "City": "Haifa",
+       "Comments" : "Hello Dan"
+      
+    },
+    {
+      "group-name" : "Yafit",
+      "group-manager": "Arieli",
+      "Area": "Center",
+      "City": "Ramat Gan",
+       "Comments" : "Hello Yafit"    }
+  ]

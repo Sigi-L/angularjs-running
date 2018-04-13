@@ -1,4 +1,4 @@
-app.factory('runService', function($log, $http, $q) {
+app.factory('runService', function ($log, $http, $q) {
   var users = [];
   var groups = [];
 
@@ -18,7 +18,7 @@ app.factory('runService', function($log, $http, $q) {
     id: 0,
     label: 'All',
     name: ''
-  },{
+  }, {
     id: 1,
     label: 'Running',
     name: 'Running'
