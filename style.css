@@ -6,12 +6,48 @@
 
 body {
     font-family: Tahoma;
-    text-align: center;
+    /* text-align: center; */
     /*align: center;*/
     /*margin: auto;*/
 }
 
+.top-header {
+    margin-top: 5em;
+}
+
 form {
     width: 80%;
-    margin: auto;
+    /* margin: auto; */
 }
+
+/* xxxxx */
+  label {
+    display: inline-block;
+    margin: 5px;
+  }
+  
+  input {
+    /* display: inline-block; */
+    margin: 5px;
+    float: right;
+  }
+  
+  .radio input {
+    float: none;
+  }
+  
+   .titlelabel {
+    display: block;
+  }
+  
+  
+  button {
+    float: right;
+    margin: 5px;
+  }
+  
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

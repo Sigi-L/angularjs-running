@@ -1,6 +1,81 @@
-<running-navbar></running-navbar>
+<!-- <running-navbar></running-navbar> -->
 
 <div class="container">
     <h1>About Running APP</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+    <form>
+        <fieldset>
+          <legend>Step 1</legend>
+    
+          <div class="clearfix">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" />
+          </div>
+          <div class="clearfix">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Enter Password" />
+          </div>
+          <div class="clearfix">
+            <label for="password2">Repeat Password:</label>
+            <input type="password2" name="password2" id="password2" placeholder="Repeat Password" />
+          </div>
+    
+        </fieldset>
+        <br>
+        <fieldset>
+          <legend>Step 2</legend>
+    
+          <div class="clearfix">
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" min="0" max="120" />
+          </div>
+    
+          <div class="radio clearfix">
+            <label for="state">State:</label>
+            <label for="single">Single</label>
+            <input type="radio" name="state" id="single" value="single" checked>
+            <label for="married">Married</label>
+            <input type="radio" name="state" id="married" value="married">
+            <label for="other">Other</label>
+            <input type="radio" name="state" id="other" value="other">
+          </div>
+    
+          <label class="titlelabel" for="hobby">Hobby:</label>
+          <select name="hobby" id="hobby" multiple>
+            <option value="" disabled selected>Select your hobbies</option>
+            <optgroup label="Outside Hobbies">
+              <option value="1">Sport</option>
+              <option value="2">Photo</option>
+            </optgroup>
+            <optgroup label="Inside Hobbies">
+              <option value="3">Dance</option>
+              <option value="4">Paint</option>
+            </optgroup>
+          </select>
+        </fieldset>
+        <br>
+    
+        <fieldset>
+          <legend>Step 3</legend>
+          <div class="clearfix">
+            <label for="file">Select profile photo:</label>
+            <input type="file" name="file" id="file" accept="image/*" multiple/>
+          </div>
+          <br>
+          <div class="clearfix">
+            <label class="titlelabel" for="about">Comments about you:</label>
+            <textarea name="about" id="" rows="8" cols="40"></textarea>
+          </div>
+    
+        </fieldset>
+        <br>
+        <input type="hidden" name="code" id="code" value="W24LCH" />
+        <br>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    
+      </form>
+    
 </div>

@@ -36,8 +36,6 @@ app.factory("activeUserService", function ($http, $log, $q) {
     // Will return true in case of successfull login. otherwise return false
     function login(email, pwd) {
 
-        email = "nir@nir.com";
-        pwd = "123123";
         var async = $q.defer();
 
         $http.get('app/data/users.json').then(
