@@ -3,10 +3,9 @@
 <div class="container">
   <h1>Run Group</h1>
   <div class="alert alert-danger" ng-show="invalidGroup">
-      <strong>Error!</strong> Invalid group data.
-</div>
+    <strong>Error!</strong> Invalid group data.
+  </div>
   <form>
-
 
     <div class="form-group">
       <label for="gname">Group Name:</label>
@@ -18,54 +17,52 @@
     </div>
 
     <div class="form-group">
-        <label for="garea">Area:</label>
-        <input type="text" class="form-control" id="garea" ng-model="garea">
-      </div>
-      <div class="form-group">
-          <label for="gcity">City:</label>
-          <input type="text" class="form-control" id="gcity" ng-model="gcity">
-        </div>
-        <div class="clearfix">
-          <label for="age">Age:</label>
-          <input type="number" name="age" id="age" min="0" max="120" />
-        </div>
-  
-        <div class="form-group radio clearfix">
-          <label for="state">State:</label>
-          <label for="single">Single</label>
-          <input type="radio" name="state" id="single" value="single" checked>
-          <label for="married">Married</label>
-          <input type="radio" name="state" id="married" value="married">
-          <label for="other">Other</label>
-          <input type="radio" name="state" id="other" value="other">
-        </div>
-  
-        <label class="titlelabel" for="hobby">Hobby:</label>
-        <select name="hobby" id="hobby" multiple>
-          <option value="" disabled selected>Select your hobbies</option>
-          <optgroup label="Outside Hobbies">
-            <option value="1">Sport</option>
-            <option value="2">Photo</option>
-          </optgroup>
-          <optgroup label="Inside Hobbies">
-            <option value="3">Dance</option>
-            <option value="4">Paint</option>
-          </optgroup>
-        </select>
+      <label for="garea">Area:</label>
+      <input type="text" class="form-control" id="garea" ng-model="garea">
+    </div>
+    <div class="form-group">
+      <label for="gcity">City:</label>
+      <input type="text" class="form-control" id="gcity" ng-model="gcity">
+    </div>
 
+    <!-- <div class="form-group radio clearfix">
+      <label for="ggender">Group Type:</label>
+      <label for="male">Male</label>
+      <input type="radio" ng-model="ggender" name="ggender" id="male" value="male" checked>
+      <label for="female">Female</label>
+      <input type="radio" ng-model="ggender"  name="ggender" id="female" value="female">
+    </div> -->
+    <div class="form-group radio clearfix">
+      <label for="gtype">Group Type:</label>
+      <label for="running">Running</label>
+      <input type="radio" ng-model="gtype" name="gtype" id="running" value="running" >
+      <label for="walking">Walking</label>
+      <input type="radio" ng-model="gtype"  name="gtype" id="walking" value="walking">
+    </div>
+   
+    <div class="form-group radio clearfix">
+      <label for="gage">Ages:</label>
+      <label for="adult">Adult</label>
+      <input type="radio" ng-model="gage" name="gage" id="adult" value="adult" >
+      <label for="children">Children</label>
+      <input type="radio" ng-model="gage"  name="gage" id="children" value="children">
+    </div>
 
+    <!-- <label class="titlelabel" for="Group Type">Group Type:</label>
+    <select ng-model="gtype" name="gtype" id="gtype">
+      <option value="" disabled selected>Select Group Type</option>
+      <option value="1">Running</option>
+      <option value="2">Walking</option>
+    </select> -->
 
     <div class="form-group">
-        <label for="exampleTextarea">Description</label>
-        <textarea class="form-control" id="exampleTextarea" rows="5" ng-model="gdesc"></textarea>
-      </div>
-
-      
+      <label for="exampleTextarea">Description</label>
+      <textarea class="form-control" id="exampleTextarea" rows="5" ng-model="gdesc"></textarea>
+    </div>
 
     <button type="submit" class="btn btn-info" ng-click="createGroup()">Create Group</button>
-   
+    <button type="reset" class="btn btn-info">Reset</button>
 
   </form>
-
 
 </div>
