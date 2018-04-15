@@ -25,7 +25,7 @@
       <th ng-click="changeSort('gtrainer')">gtrainer</th>
 
     </tr>
-    <tr ng-repeat="group in groups | filter: filterData | orderBy: sortProp : false">
+    <tr ng-repeat="group in groups | filter: filterData | orderBy: sortProp : false" ng-click="openGroup(group)">
       <td>{{group.gname}}</td>
       <td>{{group.glocation}}</td>
       <td>{{group.gcity}}</td>

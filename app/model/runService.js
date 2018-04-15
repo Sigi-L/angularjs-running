@@ -43,11 +43,10 @@ app.factory('runService', function ($log, $http, $q) {
     // this.userGroups = [];
   }
 
-
-  function createGroup(gname, gmanager, garea, gcity, gdesc) {
+   function createGroup(gname, gmanager, garea, gcity, gdesc, gtype,gage) {
 
     // function addTask(text) {
-    var newGroup = new Groupf(gname, garea, gcity, "Adult", "Running", gmanager, gdesc);
+    var newGroup = new Groupf(gname, garea, gcity, gage, gtype, gmanager, gdesc);
     if (gname === "aaa") {
       return false;
     } else {

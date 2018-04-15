@@ -19,6 +19,11 @@ app.controller("searchCtrl", function ($scope, $http, $log, runService) {
     }
   }
 
+
+      // Open group details
+      $scope.openCar = function (group) {
+        $location.path('/rungroup/' + $scope.groups.indexOf(group));
+    }
   $scope.sortProp = "";
   $scope.changeSort = function (propName) {
     $scope.sortProp = propName;
