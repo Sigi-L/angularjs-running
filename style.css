@@ -21,52 +21,59 @@ form {
 }
 
 /* xxxxx */
-  label {
-    display: inline-block;
-    margin: 5px;
-  }
-  
-  input {
-    /* display: inline-block; */
-    margin: 5px;
-    float: right;
-  }
-  
-  .radio input {
-    float: none;
-  }
-  
-   .titlelabel {
+
+.titlelabel {
     display: block;
-  }
-  
-  
-  button {
+}
+
+button {
     float: right;
     margin: 5px;
-  }
-  
-  .clearfix:after {
+}
+
+.clearfix:after {
     content: "";
     display: table;
     clear: both;
-  }
+}
 
-  fieldset {
-    display: block;
-    -webkit-margin-start: 2px;
-    -webkit-margin-end: 2px;
-    -webkit-padding-before: 0.35em;
-    -webkit-padding-start: 0.75em;
-    -webkit-padding-end: 0.75em;
-    -webkit-padding-after: 0.625em;
-    min-width: -webkit-min-content;
-    border-width: 2px;
-    border-style: groove;
-    border-color: threedface;
-    border-image: initial;
-  }
+legend {
+    padding: 0.2em 0.5em;
+    border: 1px solid gray;
+    color: gray;
+    font-size: 90%;
+    max-width: 20%;
+    /* margin:auto; */
+    /* text-align: center; */
+}
 
-  legend {
-    width: 20%;
-  }
+fieldset {
+    border: 1px solid gray;
+    padding: 1em;
+}
+
+.label1 {
+    max-width: 30%;
+    margin-right: 0.5em;
+    padding-top: 0.2em;
+    font-weight: bold;
+    display: inline-block;
+    margin: 5px;
+}
+
+.input1 {
+    /* display: inline-block; */
+    margin: 5px;
+    float: right;
+    width: 65%;
+}
+
+.input2 {
+  /* display: inline-block; */
+  margin: 5px;
+  float: right;
+  /* width: 65%; */
+}
+.radio input {
+    float: none;
+}

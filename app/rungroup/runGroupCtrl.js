@@ -22,9 +22,11 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, runServ
       $scope.gmanager, $scope.garea,
       $scope.gcity, $scope.gdesc,  $scope.gtype,  $scope.gage);
     if (ret) {
+      // TODO success
       $location.path("/search");
     }
     else {
+      // TODO error
       $location.path("/about");
     }
 

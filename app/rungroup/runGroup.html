@@ -6,60 +6,61 @@
     <strong>Error!</strong> Invalid group data.
   </div>
   <form>
+    <!-- <fieldset> -->
+      <!-- <legend>Group Data</legend> -->
+      <div class="form-group">
+        <label for="gname">Group Name:</label>
+        <input type="text" class="form-control" id="gname" ng-model="gname">
+      </div>
+      <div class="form-group">
+        <label for="gmanager">Manager:</label>
+        <input type="text" class="form-control" id="gmanager" ng-model="gmanager">
+      </div>
 
-    <div class="form-group">
-      <label for="gname">Group Name:</label>
-      <input type="text" class="form-control" id="gname" ng-model="gname">
-    </div>
-    <div class="form-group">
-      <label for="gmanager">Manager:</label>
-      <input type="text" class="form-control" id="gmanager" ng-model="gmanager">
-    </div>
+      <div class="form-group">
+        <label for="garea">Area:</label>
+        <input type="text" class="form-control" id="garea" ng-model="garea">
+      </div>
+      <div class="form-group">
+        <label for="gcity">City:</label>
+        <input type="text" class="form-control" id="gcity" ng-model="gcity">
+      </div>
 
-    <div class="form-group">
-      <label for="garea">Area:</label>
-      <input type="text" class="form-control" id="garea" ng-model="garea">
-    </div>
-    <div class="form-group">
-      <label for="gcity">City:</label>
-      <input type="text" class="form-control" id="gcity" ng-model="gcity">
-    </div>
-
-    <!-- <div class="form-group radio clearfix">
+      <!-- <div class="form-group radio clearfix">
       <label for="ggender">Group Type:</label>
       <label for="male">Male</label>
       <input type="radio" ng-model="ggender" name="ggender" id="male" value="male" checked>
       <label for="female">Female</label>
       <input type="radio" ng-model="ggender"  name="ggender" id="female" value="female">
     </div> -->
-    <div class="form-group radio clearfix">
-      <label for="gtype">Group Type:</label>
-      <label for="running">Running</label>
-      <input type="radio" ng-model="gtype" name="gtype" id="running" value="running" >
-      <label for="walking">Walking</label>
-      <input type="radio" ng-model="gtype"  name="gtype" id="walking" value="walking">
-    </div>
-   
-    <div class="form-group radio clearfix">
-      <label for="gage">Ages:</label>
-      <label for="adult">Adult</label>
-      <input type="radio" ng-model="gage" name="gage" id="adult" value="adult" >
-      <label for="children">Children</label>
-      <input type="radio" ng-model="gage"  name="gage" id="children" value="children">
-    </div>
+      <div class="form-group radio clearfix">
+        <label for="gtype">Group Type:</label>
+        <label for="running">Running</label>
+        <input type="radio" ng-model="gtype" name="gtype" id="running" value="running">
+        <label for="walking">Walking</label>
+        <input type="radio" ng-model="gtype" name="gtype" id="walking" value="walking">
+      </div>
 
-    <!-- <label class="titlelabel" for="Group Type">Group Type:</label>
+      <div class="form-group radio clearfix">
+        <label for="gage">Ages:</label>
+        <label for="adult">Adult</label>
+        <input type="radio" ng-model="gage" name="gage" id="adult" value="adult">
+        <label for="children">Children</label>
+        <input type="radio" ng-model="gage" name="gage" id="children" value="children">
+      </div>
+
+      <!-- <label class="titlelabel" for="Group Type">Group Type:</label>
     <select ng-model="gtype" name="gtype" id="gtype">
       <option value="" disabled selected>Select Group Type</option>
       <option value="1">Running</option>
       <option value="2">Walking</option>
     </select> -->
 
-    <div class="form-group">
-      <label for="exampleTextarea">Description</label>
-      <textarea class="form-control" id="exampleTextarea" rows="5" ng-model="gdesc"></textarea>
-    </div>
-
+      <div class="form-group">
+        <label for="exampleTextarea">Description</label>
+        <textarea class="form-control" id="exampleTextarea" rows="5" ng-model="gdesc"></textarea>
+      </div>
+    <!-- </fieldset> -->
     <button type="submit" class="btn btn-info" ng-click="createGroup()">Create Group</button>
     <button type="reset" class="btn btn-info">Reset</button>
 

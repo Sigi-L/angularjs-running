@@ -43,11 +43,14 @@ app.factory('runService', function ($log, $http, $q) {
     // this.userGroups = [];
   }
 
-   function createGroup(gname, gmanager, garea, gcity, gdesc, gtype,gage) {
+  function createGroup(gname, gmanager, garea, gcity, gdesc, gtype, gage) {
 
     // function addTask(text) {
     var newGroup = new Groupf(gname, garea, gcity, gage, gtype, gmanager, gdesc);
-    if (gname === "aaa") {
+
+    // TODO validations
+    if (!gname || !garea || !gcity || !gage ||
+       !gtype || !gmanager || !gdesc) {
       return false;
     } else {
       groups.push(newGroup);
