@@ -8,7 +8,16 @@ app.factory('runService', function ($log, $http, $q) {
     new User("Yaron@abc.com", 1234, "Yaron")
   ];
 
-
+  function Groupf(gname, glocation, gcity, gages, gtype, gtrainer, gdesc) {
+    this.gname = gname;
+    this.glocation = glocation;
+    this.gcity = gcity;
+    this.gages = gages;
+    this.gtype = gtype;
+    this.gtrainer = gtrainer;
+    this.gdesc = gdesc;
+    // this.userGroups = [];
+  }
 
   var group1 = new Groupf("Group 1", "Center", "Tel Aviv", "Adult",
     "Running", "Yaron", "Desc 1");
@@ -32,30 +41,34 @@ app.factory('runService', function ($log, $http, $q) {
 
 
 
-  function Groupf(gname, glocation, gcity, gages, gtype, gtrainer, gdesc) {
-    this.gname = gname;
-    this.glocation = glocation;
-    this.gcity = gcity;
-    this.gages = gages;
-    this.gtype = gtype;
-    this.gtrainer = gtrainer;
-    this.gdesc = gdesc;
-    // this.userGroups = [];
+
+
+  // function createGroup(gname, gmanager, garea, gcity, gdesc, gtype, gage) {
+
+  //   // function addTask(text) {
+  //   var newGroup = new Groupf(gname, garea, gcity, gage, gtype, gmanager, gdesc);
+
+  //   // TODO validations
+  //   if (!gname || !garea || !gcity || !gage ||
+  //      !gtype || !gmanager || !gdesc) {
+  //     return false;
+  //   } else {
+  //     groups.push(newGroup);
+  //     return true;
+  //   }
+  // }
+
+  function User(plainUser) {
+    this.uemail = plainUser.uemail;
+    this.upassword = plainUser.upassword;
+    this.uname = plainUser.uname;
+    //  this.userGroups = [];
   }
 
-  function createGroup(gname, gmanager, garea, gcity, gdesc, gtype, gage) {
+  function createGroup(group) {
+    groups.push(group);
+    return true;
 
-    // function addTask(text) {
-    var newGroup = new Groupf(gname, garea, gcity, gage, gtype, gmanager, gdesc);
-
-    // TODO validations
-    if (!gname || !garea || !gcity || !gage ||
-       !gtype || !gmanager || !gdesc) {
-      return false;
-    } else {
-      groups.push(newGroup);
-      return true;
-    }
   }
 
   function User(plainUser) {
@@ -65,16 +78,17 @@ app.factory('runService', function ($log, $http, $q) {
     //  this.userGroups = [];
   }
 
-
-  function Group(plainGroup) {
-    this.gname = plainGroup.gname;
-    this.glocation = plainGroup.glocation;
-    this.gcity = plainGroup.gcity;
-    this.gages = plainGroup.gages;
-    this.gtype = plainGroup.gtype;
-    this.gtrainer = plainGroup.gtrainer;
-    // this.userGroups = [];
+  function Group(group) {
+    this.gname = group.gname;
+    this.glocation = group.glocation;
+    this.gcity = group.gcity;
+    this.gages = grozup.gages;
+    this.gtype = group.gtype;
+    this.gtrainer = group.gtrainer;
+    this.gdesc = group.gdesc;  
+      // this.userGroups = [];
   }
+  
 
   // var task1 = new Task(true, "task1");
   // var task2 = new Task(false, "task2");

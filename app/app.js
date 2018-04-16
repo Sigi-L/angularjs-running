@@ -14,6 +14,10 @@ app.config(function ($routeProvider) {
       templateUrl: "app/rungroup/runGroup.html",
       controller: 'runGroupCtrl'
     })
+    .when('/rungroup/:index', {
+      templateUrl: "app/rungroup/runGroup.html",
+      controller: 'runGroupCtrl'
+    })
     .when("/home", {
       templateUrl: "app/home/home.html",
       controller: 'homeCtrl'
