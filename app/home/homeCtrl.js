@@ -5,6 +5,4 @@ app.controller("homeCtrl", function ($scope, $http, $log, runService) {
   $scope.types = runService.types;
 
 
-
-
 });
