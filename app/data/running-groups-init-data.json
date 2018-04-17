@@ -1,23 +1,32 @@
 [
-    {
-      "group-name" : "Sigi",
-      "group-manager": "Chohen",
-      "area": "Center",
-      "city": "Tel Aviv",
-       "desc" : "Hello Sigi"
-    },
-    {
-      "group-name" : "Dan",
-      "group-manager": "Ganot",
-      "area": "North",
-      "city": "Haifa",
-       "desc" : "Hello Dan"
-      
-    },
-    {
-      "group-name" : "Yafit",
-      "group-manager": "Arieli",
-      "area": "Center",
-      "city": "Ramat Gan",
-       "desc" : "Hello Yafit"    }
-  ]
+  {
+    "gid": 1,
+    "gname": "SprintTeam",
+    "glocation": "Center",
+    "gcity": "Tel Aviv",
+    "gages": "Adult",
+    "gtype": "Running",
+    "gtrainer": "Yaron",
+    "gdesc": "Hello SprintTeam"
+  },
+  {
+    "gid": 2,
+    "gname": "Run Away",
+    "glocation": "Center",
+    "gcity": "Lod",
+    "gages": "Adult",
+    "gtype": "Walking",
+    "gtrainer": "Dina",
+    "gdesc": "Hello Run Away"
+  },
+  {
+    "gid": 3,
+    "gname": "Runners",
+    "glocation": "West",
+    "gcity": "Ramat Ganim",
+    "gages": "Adult",
+    "gtype": "Running",
+    "gtrainer": "Tal",
+    "gdesc": "Hello Turrers"
+  }
+]
