@@ -6,8 +6,15 @@
     <strong>Error!</strong> Invalid group data.
   </div>
   <form>
+
     <!-- <fieldset> -->
     <!-- <legend>Group Data</legend> -->
+
+    <div class="form-group">
+      <label for="gid">Group ID:</label>
+      <input readonly type="text" class="form-control" id="gid" ng-model="group.gid">
+    </div>
+
     <div class="form-group">
       <label for="gname">Group Name:</label>
       <input type="text" class="form-control" id="gname" ng-model="group.gname">
@@ -60,8 +67,11 @@
       <label for="exampleTextarea">Description</label>
       <textarea class="form-control" id="exampleTextarea" rows="5" ng-model="group.gdesc"></textarea>
     </div>
+
+    <!-- <input type="hidden" ng-model="group.gid" name="gid" id="gid" value="getGid()" /> -->
+
     <!-- </fieldset> -->
-    <button type="submit" class="btn btn-info" ng-click="createGroup()">Create Group</button>
+    <button type="submit" class="btn btn-info" ng-click="createGroup()">Save</button>
     <!-- <button type="submit" class="btn btn-info" ng-click="updateGroup()">Update Group</button> -->
     <button type="reset" class="btn btn-info">Reset</button>
 

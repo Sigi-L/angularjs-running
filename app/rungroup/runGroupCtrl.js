@@ -45,6 +45,12 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
 
   }
 
+  // // Open group details
+  // $scope.getGid = function () {
+  //   var newGroupId = $scope.groups.length +1;
+  //   return newId;
+  // }
+  
   // Open group details
   $scope.openGroup = function (group) {
     $location.path('/rungroup/' + $scope.groups.indexOf(group));
