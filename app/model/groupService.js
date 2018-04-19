@@ -11,6 +11,7 @@ app.factory('groupService', function ($log, $http, $q, userService) {
     this.gtype = group.gtype;
     this.gtrainer = group.gtrainer;
     this.gdesc = group.gdesc;
+    this.gmembers = group.gmembers;
     // this.userGroups = [];
   }
 
@@ -66,6 +67,8 @@ app.factory('groupService', function ($log, $http, $q, userService) {
     if (!group.gid) {
       group.gid = getGid();
       group.gcreatordId = userService.getUser().uid;
+      group.gmembers=[];
+      group.gmembers.push(parseInt(group.gcreatordId));
       groups.push(group);
     }
     return true;

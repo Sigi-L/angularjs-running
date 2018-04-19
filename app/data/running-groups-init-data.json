@@ -8,7 +8,8 @@
     "gages": "Adult",
     "gtype": "Running",
     "gtrainer": "Yaron",
-    "gdesc": "Hello SprintTeam"
+    "gdesc": "Hello SprintTeam",
+    "gmembers":[200,300]
   },
   {
     "gid": 2,
@@ -19,7 +20,8 @@
     "gages": "Adult",
     "gtype": "Walking",
     "gtrainer": "Dina",
-    "gdesc": "Hello Run Away"
+    "gdesc": "Hello Run Away",
+    "gmembers":[300]
   },
   {
     "gid": 3,
@@ -30,6 +32,7 @@
     "gages": "Adult",
     "gtype": "Running",
     "gtrainer": "Tal",
-    "gdesc": "Hello Turrers"
+    "gdesc": "Hello Turrers",
+    "gmembers":[200,300,400]
   }
 ]
