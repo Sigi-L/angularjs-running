@@ -1,8 +1,8 @@
-app.controller("homeCtrl", function ($scope, $http, $log, runService) {
+app.controller("homeCtrl", function ($scope, $http, $log, userService, groupService) {
 
-  $scope.users = runService.users;
-  $scope.groups = runService.groups;
-  $scope.types = runService.types;
+  $scope.users = userService.users;
+  $scope.groups = groupService.groups;
+  $scope.types = groupService.types;
 
 
 });

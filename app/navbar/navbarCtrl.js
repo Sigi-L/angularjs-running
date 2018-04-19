@@ -1,8 +1,8 @@
 
-app.controller('navbarCtrl', function ($scope, activeUserService, $location) {
+app.controller('navbarCtrl', function ($scope, userService, $location) {
 
     $scope.logout = function () {
-        activeUserService.logout();
+        userService.logout();
         $location.path('/');
     }
 

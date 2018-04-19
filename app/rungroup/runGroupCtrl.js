@@ -1,17 +1,8 @@
-app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeParams, runService) {
+app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeParams, userService, groupService) {
 
-  $scope.users = runService.users;
-  $scope.groups = runService.groups;
-  $scope.types = runService.types;
-
-
-  // $scope.group.gname = "aaaaaa";
-  // $scope.group.gmanager = "Tal";
-  // $scope.group.garea = "Center";
-  // $scope.group.gcity = "Lod";
-  // $scope.group.gdesc = "Test";
-  // $scope.group.gtype = "running";
-  // $scope.group.gage = "adult";
+  $scope.users = userService.users;
+  $scope.groups = groupService.groups;
+  $scope.types = groupService.types;
 
   $scope.invalidGroup = false;
 
@@ -20,19 +11,16 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
   if ($routeParams.index) {
     indexToDisplay = parseInt($routeParams.index);
   }
-  // carService.load(activeUserService.getUser()).then(function () {
-  // $scope.car = carService.cars[indexToDisplay];
-  // })
-  // alert(indexToDisplay);
+
 
   if (indexToDisplay > -1) {
-    $scope.group = runService.groups[indexToDisplay];
+    $scope.group = groupService.groups[indexToDisplay];
   }
 
   $scope.createGroup = function () {
 
 
-    var ret = runService.createGroup($scope.group);
+    var ret = groupService.createGroup($scope.group);
     if (ret) {
       // TODO success
       $location.path("/search");

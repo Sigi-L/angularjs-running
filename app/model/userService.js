@@ -1,5 +1,8 @@
 
-app.factory("activeUserService", function ($http, $log, $q) {
+app.factory("userService", function ($http, $log, $q) {
+
+    var users = [];
+
     function User(plainUser) {
         this.email = plainUser.email;
         this.password = plainUser.password;
@@ -69,6 +72,7 @@ app.factory("activeUserService", function ($http, $log, $q) {
 
     return {
         load: load,
+        users: users,
         login: login,
         getUser: getUser,
         isLoggedIn: isLoggedIn,

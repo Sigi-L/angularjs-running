@@ -1,8 +1,8 @@
-app.controller("searchCtrl", function ($scope, $http, $log, $location, runService) {
+app.controller("searchCtrl", function ($scope, $http, $log, $location, userService, groupService) {
 
-  $scope.users = runService.users;
-  $scope.groups = runService.groups;
-  $scope.types = runService.types;
+  $scope.users = userService.users;
+  $scope.groups = groupService.groups;
+  $scope.types = groupService.types;
 
   // Initializing searchText so it won't be undefined before the user enters text
   $scope.searchCity = "";

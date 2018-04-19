@@ -1,12 +1,5 @@
-app.factory('runService', function ($log, $http, $q) {
-  var users = [];
+app.factory('groupService', function ($log, $http, $q) {
   var groups = [];
-
-
-  users = [
-    new User("sigi@abc.com", 1234, "Sigi"),
-    new User("Yaron@abc.com", 1234, "Yaron")
-  ];
 
   function Groupf(gid, gname, glocation, gcity, gages, gtype, gtrainer, gdesc) {
     this.gid = gid;
@@ -41,53 +34,20 @@ app.factory('runService', function ($log, $http, $q) {
   }];
 
 
-
-
-
-  // function createGroup(gname, gmanager, garea, gcity, gdesc, gtype, gage) {
-
-  //   // function addTask(text) {
-  //   var newGroup = new Groupf(gname, garea, gcity, gage, gtype, gmanager, gdesc);
-
-  //   // TODO validations
-  //   if (!gname || !garea || !gcity || !gage ||
-  //      !gtype || !gmanager || !gdesc) {
-  //     return false;
-  //   } else {
-  //     groups.push(newGroup);
-  //     return true;
-  //   }
-  // }
-
-  function User(plainUser) {
-    this.uemail = plainUser.uemail;
-    this.upassword = plainUser.upassword;
-    this.uname = plainUser.uname;
-    //  this.userGroups = [];
-  }
-
   function createGroup(group) {
     if (!group.gid) {
       group.gid = getGid();
       groups.push(group);
     }
     return true;
-
   }
 
 
   // Open group details
   function getGid() {
-    var newGroupId = groups.length + 1;
+    var newGroupId = parseInt(groups[groups.length-1].gid)+ 1;
+    alert ("newGroupId: " +newGroupId)
     return newGroupId;
-  }
-
-
-  function User(plainUser) {
-    this.uemail = plainUser.uemail;
-    this.upassword = plainUser.upassword;
-    this.uname = plainUser.uname;
-    //  this.userGroups = [];
   }
 
   function Group(group) {
@@ -103,21 +63,8 @@ app.factory('runService', function ($log, $http, $q) {
   }
 
 
-  // var task1 = new Task(true, "task1");
-  // var task2 = new Task(false, "task2");
-  // tasks = [task1, task2];
-
-  // function TaskObj(task) {
-  //   return new Task(task.checked, task.text);
-  // }
-
-  // function addTask(text) {
-  //   var task = new Task(true, text);
-  //   tasks.push(task);
-  // }
 
   return {
-    users: users,
     groups: groups,
     types: types,
     createGroup: createGroup
