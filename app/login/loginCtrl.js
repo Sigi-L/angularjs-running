@@ -8,19 +8,29 @@ app.controller('loginCtrl', function ($scope, userService, $log, $location) {
     $scope.pwd = "123123";
 
 
-    // userService.load().then(function ($scope.email, $scope.pwd) {
-    //     $scope.car = carService.cars[indexToDisplay];
-    // })
-    $scope.login = function () {
-        // TODO: Here you should disable the login button until there is a response from the service
+    userService.load().then(function () {
+        $scope.users = userService.users;
 
-        userService.login($scope.email, $scope.pwd).then(function (successLogin) {
-            if (successLogin) {
-                $location.path("/search");
-            } else {
-                // TODO: Missing hadleing of next try
-                $scope.invalidCredentails = true;
-            }
-        })
-    }
+
+        $scope.login = function () {
+            // TODO: Here you should disable the login button until there is a response from the service
+    
+           if ( userService.login($scope.email, $scope.pwd)) {
+
+                    $location.path("/search");
+                } else {
+                    // TODO: Missing hadleing of next try
+                    $scope.invalidCredentails = true;
+                }
+
+        }
+
+    })
+
+
+
+    
+
+
+
 });

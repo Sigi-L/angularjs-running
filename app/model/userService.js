@@ -21,19 +21,20 @@ app.factory("userService", function ($http, $log, $q) {
         if (wasUsersLoaded) {
             // Immediatly resolving the promise since cars is already available
             async.resolve();
-        } else {        $http.get('app/data/users.json').then(
-            function (response) {
-                for (var i = 0; i < response.data.length; i++) {
-                    users.push(new User(response.data[i]));
-                }
-                wasUsersLoaded = true;
-                async.resolve();
-                // Testing
-                //alert(users[1].lname); 
-            }, function (response) {
-                $log.error("error in getting user json: " + JSON.stringify(response));
-                async.reject();
-            });
+        } else {
+            $http.get('app/data/users.json').then(
+                function (response) {
+                    for (var i = 0; i < response.data.length; i++) {
+                        users.push(new User(response.data[i]));
+                    }
+                    wasUsersLoaded = true;
+                    async.resolve();
+                    // Testing
+                    //alert(users[1].lname); 
+                }, function (response) {
+                    $log.error("error in getting user json: " + JSON.stringify(response));
+                    async.reject();
+                });
         }
         return async.promise;
 
@@ -43,24 +44,13 @@ app.factory("userService", function ($http, $log, $q) {
     // This function will update the active user property with the logged in user
     // Will return true in case of successfull login. otherwise return false
     function login(email, pwd) {
-
-        var async = $q.defer();
-
-        $http.get('app/data/users.json').then(
-            function (response) {
-                for (var i = 0; i < response.data.length; i++) {
-                    if (response.data[i].email === email && response.data[i].password === pwd) {
-                        activeUser = new User(response.data[i]);
-                        async.resolve(true);
-                    }
-                }
-                async.resolve(false);
-            }, function (response) {
-                $log.error("error in getting user json: " + JSON.stringify(response));
-                async.reject();
-            });
-
-        return async.promise;
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].email === email && users[i].password === pwd) {
+                activeUser = new User(users[i]);
+                return true;
+            }
+        }
+        return false;
     }
 
     function getUser() {
