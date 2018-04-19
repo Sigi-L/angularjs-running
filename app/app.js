@@ -29,6 +29,10 @@ app.config(function ($routeProvider) {
       templateUrl: "app/search/search.html",
       controller: 'searchCtrl'
     })
+    .when('/mygroups', {
+      templateUrl: "app/mygroups/mygroups.html",
+      controller: 'mygroupsCtrl'
+    })
     .otherwise({
       redirectTo: "/"
     })
