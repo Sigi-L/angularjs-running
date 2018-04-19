@@ -1,23 +1,18 @@
-app.factory('groupService', function ($log, $http, $q) {
+app.factory('groupService', function ($log, $http, $q, userService) {
   var groups = [];
 
-  function Groupf(gid, gname, glocation, gcity, gages, gtype, gtrainer, gdesc) {
-    this.gid = gid;
-    this.gname = gname;
-    this.glocation = glocation;
-    this.gcity = gcity;
-    this.gages = gages;
-    this.gtype = gtype;
-    this.gtrainer = gtrainer;
-    this.gdesc = gdesc;
+  function Group(group) {
+    this.gid = group.gid;
+    this.gcreatordId = group.gcreatordId;
+    this.gname = group.gname;
+    this.glocation = group.glocation;
+    this.gcity = group.gcity;
+    this.gages = group.gages;
+    this.gtype = group.gtype;
+    this.gtrainer = group.gtrainer;
+    this.gdesc = group.gdesc;
     // this.userGroups = [];
   }
-
-  var group1 = new Groupf("1", "Group 1", "Center", "Tel Aviv", "Adult",
-    "Running", "Yaron", "Desc 1");
-  var group2 = new Groupf("2", "Group 2", "Center", "Ramat Gan", "Adult",
-    "Walking", "Dan", "Desc 2");
-  groups = [group1, group2];
 
   var types = [{
     id: 0,
@@ -33,10 +28,44 @@ app.factory('groupService', function ($log, $http, $q) {
     name: 'Walking'
   }];
 
+  var wasGroupsLoaded = false;
+  var activeUser = null;
 
+
+  // userService.load().then(function () {
+
+  //   $scope.users = userService.users;
+
+  // })
+  function load() {
+    var async = $q.defer();
+
+    // Checking if the cars was ever loaded
+    if (wasGroupsLoaded) {
+      // Immediatly resolving the promise since cars is already available
+      async.resolve();
+    } else {
+      $http.get('app/data/running-groups-init-data.json').then(
+        function (response) {
+          for (var i = 0; i < response.data.length; i++) {
+            groups.push(new Group(response.data[i]));
+          }
+          wasGroupsLoaded = true;
+          async.resolve();
+          // Testing
+          //alert(users[1].lname); 
+        }, function (response) {
+          $log.error("error in getting user json: " + JSON.stringify(response));
+          async.reject();
+        });
+    }
+    return async.promise;
+
+  }
   function createGroup(group) {
     if (!group.gid) {
       group.gid = getGid();
+      group.gcreatordId = userService.getUser().uid;
       groups.push(group);
     }
     return true;
@@ -45,21 +74,9 @@ app.factory('groupService', function ($log, $http, $q) {
 
   // Open group details
   function getGid() {
-    var newGroupId = parseInt(groups[groups.length-1].gid)+ 1;
-    alert ("newGroupId: " +newGroupId)
+    var newGroupId = parseInt(groups[groups.length - 1].gid) + 1;
+    // alert("newGroupId: " + newGroupId)
     return newGroupId;
-  }
-
-  function Group(group) {
-    this.gid = group.gid;
-    this.gname = group.gname;
-    this.glocation = group.glocation;
-    this.gcity = group.gcity;
-    this.gages = grozup.gages;
-    this.gtype = group.gtype;
-    this.gtrainer = group.gtrainer;
-    this.gdesc = group.gdesc;
-    // this.userGroups = [];
   }
 
 
@@ -67,6 +84,7 @@ app.factory('groupService', function ($log, $http, $q) {
   return {
     groups: groups,
     types: types,
+    load: load,
     createGroup: createGroup
   }
 

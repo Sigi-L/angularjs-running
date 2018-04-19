@@ -1,6 +1,7 @@
 [
   {
     "gid": 1,
+    "gcreatordId": "200",
     "gname": "SprintTeam",
     "glocation": "Center",
     "gcity": "Tel Aviv",
@@ -11,6 +12,7 @@
   },
   {
     "gid": 2,
+    "gcreatordId": "300",
     "gname": "Run Away",
     "glocation": "Center",
     "gcity": "Lod",
@@ -21,6 +23,7 @@
   },
   {
     "gid": 3,
+    "gcreatordId": "200",
     "gname": "Runners",
     "glocation": "West",
     "gcity": "Ramat Ganim",

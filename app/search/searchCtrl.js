@@ -1,13 +1,26 @@
 app.controller("searchCtrl", function ($scope, $http, $log, $location, userService, groupService) {
 
-  $scope.users = userService.users;
-  $scope.groups = groupService.groups;
-  $scope.types = groupService.types;
+  // $scope.users = userService.users;
+  // $scope.groups = groupService.groups;
+  // $scope.types = groupService.types;
 
   // Initializing searchText so it won't be undefined before the user enters text
   $scope.searchCity = "";
   $scope.searchLocation = "";
   $scope.selectedType = ""; // $scope.types[0];
+
+
+  userService.load().then(function () {
+       
+    $scope.users = userService.users;
+  })
+  
+  groupService.load().then(function () {
+      
+    $scope.groups = groupService.groups;
+    $scope.types = groupService.types;
+
+  })
 
   $scope.filterData = function (group) {
     if ((!$scope.selectedType || group.gtype.toLowerCase().includes($scope.selectedType.name.toLowerCase())) &&

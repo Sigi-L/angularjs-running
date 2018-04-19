@@ -4,6 +4,7 @@ app.factory("userService", function ($http, $log, $q) {
     var users = [];
 
     function User(plainUser) {
+        this.uid = plainUser.uid;
         this.email = plainUser.email;
         this.password = plainUser.password;
         this.fname = plainUser.fname;
