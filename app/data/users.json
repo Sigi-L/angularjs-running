@@ -5,6 +5,12 @@
         "fname": "Nir",
         "lname": "Channes",
         "data": "app/data/cars-nir.json"
+    },    {
+        "email": "1@1",
+        "password": "123",
+        "fname": "sigi",
+        "lname": "sigi",
+        "data": "app/data/cars-nir.json"
     },
     {
         "email": "john@doe.com",

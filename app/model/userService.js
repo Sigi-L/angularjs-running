@@ -11,17 +11,22 @@ app.factory("userService", function ($http, $log, $q) {
         this.data = plainUser.data;
     }
 
+    var wasUsersLoaded = false;
     var activeUser = null;
 
     function load() {
         var async = $q.defer();
 
-        $http.get('app/data/users.json').then(
+        // Checking if the cars was ever loaded
+        if (wasUsersLoaded) {
+            // Immediatly resolving the promise since cars is already available
+            async.resolve();
+        } else {        $http.get('app/data/users.json').then(
             function (response) {
                 for (var i = 0; i < response.data.length; i++) {
                     users.push(new User(response.data[i]));
                 }
-
+                wasUsersLoaded = true;
                 async.resolve();
                 // Testing
                 //alert(users[1].lname); 
@@ -29,7 +34,7 @@ app.factory("userService", function ($http, $log, $q) {
                 $log.error("error in getting user json: " + JSON.stringify(response));
                 async.reject();
             });
-
+        }
         return async.promise;
 
     }
