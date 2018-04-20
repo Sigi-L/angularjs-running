@@ -1,7 +1,7 @@
 <running-navbar></running-navbar>
 
 <div class="container">
-  <h1> My Groups</h1>
+  <!-- <h1> My Groups</h1> -->
 
   <div>
     <label for="searchCity">City:</label>
@@ -15,9 +15,10 @@
     </select>
   </div>
 
-  <table class="table">
-    <tr>
 
+  <table class="table">
+    <caption>My Groups</caption>
+    <tr>
       <th ng-click="changeSort('gid')">gid</th>
       <th ng-click="changeSort('gcreatordId')">gcreatordId</th>
       <th ng-click="changeSort('gname')">gname</th>
@@ -28,7 +29,7 @@
       <th ng-click="changeSort('gtrainer')">gtrainer</th>
       <th ng-click="changeSort('gmembers')">gmembers</th>
     </tr>
-    <tr ng-repeat="group in groups | filter: filterData | orderBy: sortProp : false track by group.gid" ng-click="openGroup(group)">
+    <tr ng-repeat="group in mygroups | filter: filterData | orderBy: sortProp : false track by group.gid" ng-click="openGroup(group)">
       <td>{{group.gid}}</td>
       <td>{{group.gcreatordId}}</td>
       <td>{{group.gname}}</td>
@@ -39,7 +40,33 @@
       <td>{{group.gtrainer}}</td>
       <td>{{group.gmembers}}</td>
     </tr>
-  </table>
+
+    <table class="table">
+      <!-- <h3>My Admin</h3> -->
+      <caption>My Admin</caption>
+      <tr>
+        <th ng-click="changeSort('gid')">gid</th>
+        <th ng-click="changeSort('gcreatordId')">gcreatordId</th>
+        <th ng-click="changeSort('gname')">gname</th>
+        <th ng-click="changeSort('glocation')">glocation</th>
+        <th ng-click="changeSort('gcity')">gcity</th>
+        <th ng-click="changeSort('gages')">gages</th>
+        <th ng-click="changeSort('gtype')">gtype</th>
+        <th ng-click="changeSort('gtrainer')">gtrainer</th>
+        <th ng-click="changeSort('gmembers')">gmembers</th>
+      </tr>
+      <tr ng-repeat="group in myadmin | filter: filterData | orderBy: sortProp : false track by group.gid" ng-click="openGroup(group)">
+        <td>{{group.gid}}</td>
+        <td>{{group.gcreatordId}}</td>
+        <td>{{group.gname}}</td>
+        <td>{{group.glocation}}</td>
+        <td>{{group.gcity}}</td>
+        <td>{{group.gages}}</td>
+        <td>{{group.gtype}}</td>
+        <td>{{group.gtrainer}}</td>
+        <td>{{group.gmembers}}</td>
+      </tr>
+    </table>
 
 
 
