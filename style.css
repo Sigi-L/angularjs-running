@@ -69,11 +69,31 @@ fieldset {
 }
 
 .input2 {
-  /* display: inline-block; */
-  margin: 5px;
-  float: right;
-  /* width: 65%; */
+    /* display: inline-block; */
+    margin: 5px;
+    float: right;
+    /* width: 65%; */
 }
+
+
+
+
+.table, th, td {
+    /* border: 1px solid black; */
+    border-top: 2px solid black;
+    /* border-collapse: collapse; */
+}
+th, td {
+    border: 2px solid black;
+    padding: 5px;
+    text-align: left;
+}
+.table caption {
+    caption-side: top;
+    /* border: inherit; */
+    /* background-color: lightgrey; */
+}
+
 .radio input {
     float: none;
 }

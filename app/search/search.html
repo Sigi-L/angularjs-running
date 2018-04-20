@@ -27,7 +27,7 @@
       <th ng-click="changeSort('gages')">gages</th>
       <th ng-click="changeSort('gtype')">gtype</th>
       <th ng-click="changeSort('gtrainer')">gtrainer</th>
- 
+
     </tr>
     <tr ng-repeat="group in groups | filter: filterData | orderBy: sortProp : false track by group.gid" ng-click="openGroup(group)">
       <td>{{group.gid}}</td>

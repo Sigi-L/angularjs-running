@@ -1,15 +1,22 @@
 
-app.factory("userService", function ($http, $log, $q) {
+app.factory("userService", function ($http, $log, $q, groupService) {
 
     var users = [];
 
     function User(plainUser) {
         this.uid = plainUser.uid;
-        this.email = plainUser.email;
-        this.password = plainUser.password;
-        this.fname = plainUser.fname;
-        this.lname = plainUser.lname;
-        this.data = plainUser.data;
+        this.uemail = plainUser.uemail;
+        this.upassword = plainUser.upassword;
+        this.ufname = plainUser.ufname;
+        this.ulname = plainUser.ulname;
+        this.umygroups = plainUser.umygroups;
+        this.umyadmin = plainUser.umyadmin;
+        this.username = function () {
+            return this.ufname + " " + this.ulname;
+        };
+        this.usertitle = function () {
+            return this.ufname + " " + this.ulname + " (" + this.uid + ")";
+        };
     }
 
     var wasUsersLoaded = false;
@@ -46,8 +53,10 @@ app.factory("userService", function ($http, $log, $q) {
     // Will return true in case of successfull login. otherwise return false
     function login(email, pwd) {
         for (var i = 0; i < users.length; i++) {
-            if (users[i].email === email && users[i].password === pwd) {
+            if (users[i].uemail === email && users[i].upassword === pwd) {
                 activeUser = new User(users[i]);
+                // TODO setUserDara
+                // groupService.setUserDara(activeUser.uid);
                 return true;
             }
         }
@@ -58,12 +67,25 @@ app.factory("userService", function ($http, $log, $q) {
         return activeUser;
     }
 
+    function getUser() {
+        return activeUser;
+    }
     function isLoggedIn() {
         return activeUser ? true : false;
     }
 
+    function getUserById(uid) {
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].uid === uid) {
+                return (users[i]);
+            }
+        }
+    }
+
     function logout() {
         activeUser = null;
+        // groupService.mygroups.splice(0, mygroups.length);
+        // groupService.myadmin.splice(0, mygroups.length);
     }
 
     return {
@@ -72,6 +94,7 @@ app.factory("userService", function ($http, $log, $q) {
         login: login,
         getUser: getUser,
         isLoggedIn: isLoggedIn,
+        getUserById: getUserById,
         logout: logout
     }
 })

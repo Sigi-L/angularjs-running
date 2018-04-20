@@ -9,11 +9,13 @@
     "gtype": "Running",
     "gtrainer": "Yaron",
     "gdesc": "Hello SprintTeam",
-    "gmembers":[200,300]
+    "gmembers": [
+      300
+    ]
   },
   {
     "gid": 2,
-    "gcreatordId": "300",
+    "gcreatordId": "400",
     "gname": "Run Away",
     "glocation": "Center",
     "gcity": "Lod",
@@ -21,7 +23,7 @@
     "gtype": "Walking",
     "gtrainer": "Dina",
     "gdesc": "Hello Run Away",
-    "gmembers":[300]
+    "gmembers": []
   },
   {
     "gid": 3,
@@ -33,6 +35,9 @@
     "gtype": "Running",
     "gtrainer": "Tal",
     "gdesc": "Hello Turrers",
-    "gmembers":[200,300,400]
+    "gmembers": [
+      300,
+      400
+    ]
   }
 ]

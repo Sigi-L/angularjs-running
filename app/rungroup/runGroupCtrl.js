@@ -22,7 +22,7 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
   }
 
   $scope.createGroup = function () {
-    var ret = groupService.createGroup($scope.group);
+    var ret = groupService.createGroup($scope.group, userService.getUser());
     if (ret) {
       // TODO success
       $location.path("/search");

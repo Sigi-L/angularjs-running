@@ -1,4 +1,4 @@
-app.factory('groupService', function ($log, $http, $q, userService) {
+app.factory('groupService', function ($log, $http, $q) {
   var groups = [];
 
   function Group(group) {
@@ -32,12 +32,6 @@ app.factory('groupService', function ($log, $http, $q, userService) {
   var wasGroupsLoaded = false;
   var activeUser = null;
 
-
-  // userService.load().then(function () {
-
-  //   $scope.users = userService.users;
-
-  // })
   function load() {
     var async = $q.defer();
 
@@ -63,12 +57,13 @@ app.factory('groupService', function ($log, $http, $q, userService) {
     return async.promise;
 
   }
-  function createGroup(group) {
+  function createGroup(group, user) {
     if (!group.gid) {
       group.gid = getGid();
-      group.gcreatordId = userService.getUser().uid;
-      group.gmembers=[];
-      group.gmembers.push(parseInt(group.gcreatordId));
+      group.gcreatordId = user.uid;
+      group.gmembers = [];
+      user.umyadmin.push(group.gid);
+      // group.gmembers.push(parseInt(group.gcreatordId));
       groups.push(group);
     }
     return true;
@@ -83,12 +78,54 @@ app.factory('groupService', function ($log, $http, $q, userService) {
   }
 
 
+  function getGroupById(gid) {
+    for (var i = 0; i < groups.length; i++) {
+      if (groups[i].gid === gid) {
+        return (groups[i]);
+      }
+    }
+  }
+
+  // groupService.getUserGroups(userService.getUser(),$scope.groups);
+
+  function getUserGroups(user) {
+    var mygrp = [];
+    for (var i = 0; i < user.umygroups.length; i++) {
+      mygrp.push(getGroupById(user.umygroups[i]));
+
+    }
+    return mygrp;
+  }
+
+  function getUserAdmin(user) {
+    var mdadm = [];
+    for (var i = 0; i < user.umyadmin.length; i++) {
+      mdadm.push(getGroupById(user.umyadmin[i]));
+    }
+    return mdadm;
+  }
+
+  // function setUserDara(uid) {
+  //   mygroups.splice(0, mygroups.length);
+  //   myadmin.splice(0, mygroups.length);
+  //   for (var i = 0; i < groups.length; i++) {
+  //     if (groups[i].gcreatordId === uid) {
+  //       mygroups.push(new Group(groups[i]));
+  //     }
+  //     if (groups[i].gmembers.includes(uid)) {
+  //       myadmin.push(new Group(groups[i]));
+  //     }
+  //   }
+  // }
 
   return {
     groups: groups,
     types: types,
     load: load,
-    createGroup: createGroup
+    createGroup: createGroup,
+    getGroupById: getGroupById,
+    getUserGroups: getUserGroups,
+    getUserAdmin: getUserAdmin
   }
 
 })

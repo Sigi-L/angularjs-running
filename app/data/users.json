@@ -1,26 +1,39 @@
 [
     {
         "uid": "400",
-        "email": "nir@nir.com",
-        "password": "123123",
-        "fname": "Nir",
-        "lname": "Channes",
-        "data": "app/data/cars-nir.json"
+        "uemail": "nir@nir.com",
+        "upassword": "123123",
+        "ufname": "Nir",
+        "ulname": "Channes",
+        "umygroups": [
+            3
+        ],
+        "umyadmin": [
+            2
+        ]
     },
     {
         "uid": "200",
-        "email": "1@1",
-        "password": "123",
-        "fname": "sigi",
-        "lname": "sigi",
-        "data": "app/data/cars-nir.json"
+        "uemail": "1@1",
+        "upassword": "123",
+        "ufname": "sigi",
+        "ulname": "sigi",
+        "umygroups": [],
+        "umyadmin": [
+            1,
+            3
+        ]
     },
     {
         "uid": "300",
-        "email": "john@doe.com",
-        "password": "johnjohn",
-        "fname": "John",
-        "lname": "Doe",
-        "data": "app/data/cars-john.json"
+        "uemail": "john@doe.com",
+        "upassword": "johnjohn",
+        "ufname": "John",
+        "ulname": "Doe",
+        "umygroups": [
+            1,
+            3
+        ],
+        "umyadmin": []
     }
 ]

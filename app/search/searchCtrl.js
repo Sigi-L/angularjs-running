@@ -11,12 +11,12 @@ app.controller("searchCtrl", function ($scope, $http, $log, $location, userServi
 
 
   userService.load().then(function () {
-       
+
     $scope.users = userService.users;
   })
-  
+
   groupService.load().then(function () {
-      
+
     $scope.groups = groupService.groups;
     $scope.types = groupService.types;
 
