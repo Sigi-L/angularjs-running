@@ -75,19 +75,17 @@ fieldset {
     /* width: 65%; */
 }
 
-
-
-
-.table, th, td {
+.table,
+th,
+td {
     /* border: 1px solid black; */
-    border-top: 2px solid black;
+    border-top: 2px solid gray;
+    border: 2px solid gray;
     /* border-collapse: collapse; */
-}
-th, td {
-    border: 2px solid black;
     padding: 5px;
     text-align: left;
 }
+
 .table caption {
     caption-side: top;
     /* border: inherit; */
@@ -97,3 +95,7 @@ th, td {
 .radio input {
     float: none;
 }
+
+/* .selected {
+    border: 0.5em solid red;
+} */

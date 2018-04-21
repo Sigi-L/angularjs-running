@@ -1,6 +1,10 @@
 
 app.controller('navbarCtrl', function ($scope, userService, $location) {
 
+    if (!userService.isLoggedIn()) {
+        $location.path("/");
+        return;
+    }
 
     userService.load().then(function () {
         $scope.users = userService.users;
@@ -9,8 +13,8 @@ app.controller('navbarCtrl', function ($scope, userService, $location) {
 
 
     $scope.logout = function () {
-        $scope.mygroups.splice(0, mygroups.length);
-        $scope.myadmin.splice(0, mygroups.length);
+        // $scope.mygroups.splice(0, mygroups.length);
+        // $scope.myadmin.splice(0, mygroups.length);
         userService.logout();
         $location.path('/');
     }

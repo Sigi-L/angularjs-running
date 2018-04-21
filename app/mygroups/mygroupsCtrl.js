@@ -1,5 +1,11 @@
 app.controller("mygroupsCtrl", function ($scope, $http, $log, $location, userService, groupService) {
 
+  if (!userService.isLoggedIn()) {
+    $location.path("/");
+    return;
+  }
+
+
   // Initializing searchText so it won't be undefined before the user enters text
   $scope.searchCity = "";
   $scope.searchLocation = "";

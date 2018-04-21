@@ -1,5 +1,10 @@
 app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeParams, userService, groupService) {
 
+  if (!userService.isLoggedIn()) {
+    $location.path("/");
+    return;
+  }
+  
   userService.load().then(function () {
     $scope.users = userService.users;
   })

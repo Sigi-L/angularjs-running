@@ -1,9 +1,10 @@
 app.controller("searchCtrl", function ($scope, $http, $log, $location, userService, groupService) {
 
-  // $scope.users = userService.users;
-  // $scope.groups = groupService.groups;
-  // $scope.types = groupService.types;
-
+  if (!userService.isLoggedIn()) {
+    $location.path("/");
+    return;
+  }
+  
   // Initializing searchText so it won't be undefined before the user enters text
   $scope.searchCity = "";
   $scope.searchLocation = "";
@@ -11,15 +12,12 @@ app.controller("searchCtrl", function ($scope, $http, $log, $location, userServi
 
 
   userService.load().then(function () {
-
     $scope.users = userService.users;
   })
 
   groupService.load().then(function () {
-
     $scope.groups = groupService.groups;
     $scope.types = groupService.types;
-
   })
 
   $scope.filterData = function (group) {
