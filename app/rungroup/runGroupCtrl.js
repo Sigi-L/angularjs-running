@@ -41,6 +41,13 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
       $location.path("/about");
     }
   }
+  $scope.registerGroup = function () {
+    alert("TODO unregisterGroup")
+      ;
+  }
+  $scope.unregisterGroup = function () {
+    alert("TODO unregisterGroup")
+  }
 
   // Open group details
   $scope.openGroup = function (group) {
@@ -48,11 +55,21 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
   }
 
   $scope.isAdmin = function (group) {
-
-    if (group.gcreatordId === currUser.uid) {
+    if (group && group.gcreatordId === currUser.uid) {
       return true;
     } else {
       return false;
     }
   }
+
+  $scope.isAdminOrNew = function (group) {
+    if (!group || (group && group.gcreatordId === currUser.uid) || (group && !group.gid)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
+
 });

@@ -58,7 +58,7 @@ app.factory('groupService', function ($log, $http, $q) {
 
   }
   function saveGroup(group, user) {
-    if (!group.gid) {
+    if (group &&!group.gid) {
       group.gid = getGid();
       group.gcreatordId = user.uid;
       group.gmembers = [];
