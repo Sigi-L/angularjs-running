@@ -41,12 +41,34 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
       $location.path("/about");
     }
   }
+$scope.showUserAction = groupService.isRegister($scope.group, userService.getUser());
+
   $scope.registerGroup = function () {
-    alert("TODO unregisterGroup")
-      ;
+    // alert("TODO registerGroup");
+    var ret = groupService.registerGroup($scope.group, userService.getUser());
+    if (ret) {
+      // TODO success
+      $location.path("/mygroups");
+    }
+    else {
+      // TODO error
+      alert("Error saveGroup");
+      $location.path("/about");
+    }
   }
+ 
   $scope.unregisterGroup = function () {
-    alert("TODO unregisterGroup")
+    // alert("TODO unregisterGroup");
+    var ret = groupService.unregisterGroup($scope.group, userService.getUser());
+    if (ret) {
+      // TODO success
+      $location.path("/mygroups");
+    }
+    else {
+      // TODO error
+      alert("Error saveGroup");
+      $location.path("/about");
+    }
   }
 
   // Open group details
@@ -70,6 +92,13 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
     }
   }
 
+  $scope.isAdminOrNew = function (group) {
+    if (!group || (group && group.gcreatordId === currUser.uid) || (group && !group.gid)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
 
 });

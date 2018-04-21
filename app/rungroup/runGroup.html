@@ -27,6 +27,8 @@
     </fieldset>
     <br>
 
+
+    <!-- TODO - add required -->
     <fieldset ng-disabled="!isAdminOrNew(group)" class="clearfix">
       <legend>Group Details</legend>
       <div class="form-group">
@@ -75,8 +77,8 @@
     <fieldset ng-show="!isAdminOrNew(group)" class="clearfix">
       <legend>User Actions</legend>
       <div class="center">
-        <button type="submit" class="btn btn-info" ng-click="registerGroup()">Register</button>
-        <button type="submit" class="btn btn-info" ng-click="unregisterGroup()">Unregister</button>
+        <button ng-hide="showUserAction" type="submit" class="btn btn-info" ng-click="registerGroup()">Register</button>
+        <button ng-show="showUserAction" type="submit" class="btn btn-info" ng-click="unregisterGroup()">Unregister</button>
       </div>
     </fieldset>
     <br>

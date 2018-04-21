@@ -58,18 +58,51 @@ app.factory('groupService', function ($log, $http, $q) {
 
   }
   function saveGroup(group, user) {
-    if (group &&!group.gid) {
+    if (group && !group.gid) {
       group.gid = getGid();
       group.gcreatordId = user.uid;
       group.gmembers = [];
       user.umyadmin.push(group.gid);
-      // group.gmembers.push(parseInt(group.gcreatordId));
       groups.push(group);
     }
     return true;
   }
 
+  function isRegister(group, user) {
+    var gmembersIndex = group ? group.gmembers.indexOf(parseInt(user.uid)) : -1;
+    if (gmembersIndex > -1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
+
+  function registerGroup(group, user) {
+    var gmembersIndex = group.gmembers.indexOf(parseInt(user.uid));
+    if (gmembersIndex === -1) {
+      group.gmembers.push(parseInt(user.uid));
+    }
+
+    var umygroupsIndex = user.umygroups.indexOf(parseInt(group.gid));
+    if (umygroupsIndex === -1) {
+      user.umygroups.push(parseInt(group.gid));
+    }
+    return true;
+  }
+
+  function unregisterGroup(group, user) {
+    var gmembersIndex = group.gmembers.indexOf(parseInt(user.uid));
+    if (gmembersIndex > -1) {
+      group.gmembers.splice(gmembersIndex, 1);
+    }
+
+    var umygroupsIndex = user.umygroups.indexOf(parseInt(group.gid));
+    if (umygroupsIndex > -1) {
+      user.umygroups.splice(umygroupsIndex, 1);
+    }
+    return true;
+  }
   // Open group details
   function getGid() {
     var newGroupId = parseInt(groups[groups.length - 1].gid) + 1;
@@ -85,8 +118,6 @@ app.factory('groupService', function ($log, $http, $q) {
       }
     }
   }
-
-  // groupService.getUserGroups(userService.getUser(),$scope.groups);
 
   function getUserGroups(user) {
     var mygrp = [];
@@ -125,7 +156,10 @@ app.factory('groupService', function ($log, $http, $q) {
     saveGroup: saveGroup,
     getGroupById: getGroupById,
     getUserGroups: getUserGroups,
-    getUserAdmin: getUserAdmin
+    getUserAdmin: getUserAdmin,
+    registerGroup: registerGroup,
+    unregisterGroup: unregisterGroup,
+    isRegister: isRegister
   }
 
 })
