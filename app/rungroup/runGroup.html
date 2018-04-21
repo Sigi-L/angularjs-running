@@ -7,83 +7,77 @@
   </div>
   <form>
 
-    <!-- <fieldset> -->
     <!-- <legend>Group Data</legend> -->
+    <fieldset ng-show="isAdmin(group)">
+      <legend>Admin Details</legend>
+      <div class="form-group">
+        <label for="gid">Group ID:</label>
+        <input disabled type="text" class="form-control" id="gid" ng-model="group.gid">
+      </div>
 
-    <div class="form-group">
-      <label for="gid">Group ID:</label>
-      <input readonly type="text" class="form-control" id="gid" ng-model="group.gid">
-    </div>
+      <div class="form-group" ng-show="isAdmin(group)">
+        <label for="gcreatordId">gcreatordId:</label>
+        <input readonly type="text" class="form-control" id="gcreatordId" ng-model="group.gcreatordId">
+      </div>
 
-    <div class="form-group">
-      <label for="gcreatordId">gcreatordId:</label>
-      <input readonly type="text" class="form-control" id="gcreatordId" ng-model="group.gcreatordId">
-    </div>
+      <div class="form-group" ng-show="isAdmin(group)">
+        <label for="gid">gmembers:</label>
+        <input readonly type="text" class="form-control" id="gmembers" ng-model="group.gmembers">
+      </div>
+    </fieldset>
+    <br>
 
-    <div class="form-group">
-      <label for="gid">gmembers:</label>
-      <input readonly type="text" class="form-control" id="gmembers" ng-model="group.gmembers">
-    </div>
-    <div class="form-group">
-      <label for="gname">Group Name:</label>
-      <input type="text" class="form-control" id="gname" ng-model="group.gname">
-    </div>
-    <div class="form-group">
-      <label for="gtrainer">Manager:</label>
-      <input type="text" class="form-control" id="gtrainer" ng-model="group.gtrainer">
-    </div>
+    <fieldset disabled="!isAdmin(group)">
+      <legend>Group Details</legend>
+      <div class="form-group">
+        <label for="gname">Group Name:</label>
+        <input type="text" class="form-control" id="gname" ng-model="group.gname">
+      </div>
+      <div class="form-group">
+        <label for="gtrainer">Manager:</label>
+        <input type="text" class="form-control" id="gtrainer" ng-model="group.gtrainer">
+      </div>
 
-    <div class="form-group">
-      <label for="glocation">Area:</label>
-      <input type="text" class="form-control" id="garea" ng-model="group.glocation">
-    </div>
-    <div class="form-group">
-      <label for="gcity">City:</label>
-      <input type="text" class="form-control" id="gcity" ng-model="group.gcity">
-    </div>
+      <div class="form-group">
+        <label for="glocation">Area:</label>
+        <input type="text" class="form-control" id="garea" ng-model="group.glocation">
+      </div>
+      <div class="form-group">
+        <label for="gcity">City:</label>
+        <input type="text" class="form-control" id="gcity" ng-model="group.gcity">
+      </div>
 
-    <!-- <div class="form-group radio clearfix">
-      <label for="ggender">Group Type:</label>
-      <label for="male">Male</label>
-      <input type="radio" ng-model="ggender" name="ggender" id="male" value="male" checked>
-      <label for="female">Female</label>
-      <input type="radio" ng-model="ggender"  name="ggender" id="female" value="female">
-    </div> -->
-    <div class="form-group radio clearfix">
-      <label for="gtype">Group Type:</label>
-      <label for="running">Running</label>
-      <input type="radio" ng-model="group.gtype" name="gtype" id="running" value="Running">
-      <label for="walking">Walking</label>
-      <input type="radio" ng-model="group.gtype" name="gtype" id="walking" value="Walking">
-    </div>
 
-    <div class="form-group radio clearfix">
-      <label for="gage">Ages:</label>
-      <label for="adult">Adult</label>
-      <input type="radio" ng-model="group.gages" name="gage" id="adult" value="Adult">
-      <label for="children">Children</label>
-      <input type="radio" ng-model="group.gages" name="gage" id="children" value="Children">
-    </div>
+      <div class="form-group radio clearfix">
+        <label for="gtype">Group Type:</label>
+        <label for="running">Running</label>
+        <input type="radio" ng-model="group.gtype" name="gtype" id="running" value="Running">
+        <label for="walking">Walking</label>
+        <input type="radio" ng-model="group.gtype" name="gtype" id="walking" value="Walking">
+      </div>
 
-    <!-- <label class="titlelabel" for="Group Type">Group Type:</label>
-    <select ng-model="gtype" name="gtype" id="gtype">
-      <option value="" disabled selected>Select Group Type</option>
-      <option value="1">Running</option>
-      <option value="2">Walking</option>
-    </select> -->
+      <div class="form-group radio clearfix" ng-disabled="!isAdmin(group)">
+        <label for="gage">Ages:</label>
+        <label for="adult">Adult</label>
+        <input type="radio" ng-model="group.gages" name="gage" id="adult" value="Adult">
+        <label for="children">Children</label>
+        <input type="radio" ng-model="group.gages" name="gage" id="children" value="Children">
+      </div>
 
-    <div class="form-group">
-      <label for="exampleTextarea">Description</label>
-      <textarea class="form-control" id="exampleTextarea" rows="5" ng-model="group.gdesc"></textarea>
-    </div>
 
-    <!-- <input type="hidden" ng-model="group.gid" name="gid" id="gid" value="getGid()" /> -->
+      <div class="form-group">
+        <label for="gdesc">Description</label>
+        <textarea class="form-control" id="gdesc" max-rows="20" ng-model="group.gdesc"></textarea>
+      </div>
 
-    <!-- </fieldset> -->
-    <button type="submit" class="btn btn-info" ng-click="createGroup()">Save</button>
-    <!-- <button type="submit" class="btn btn-info" ng-click="updateGroup()">Update Group</button> -->
-    <button type="reset" class="btn btn-info">Reset</button>
+    </fieldset>
+<br>
 
+    <fieldset ng-show="isAdmin(group)">
+        <legend>Actions</legend>
+      <button type="submit" class="btn btn-info" ng-click="saveGroup()">Save</button>
+      <button type="reset" class="btn btn-info">Reset</button>
+    </fieldset>
   </form>
 
 </div>

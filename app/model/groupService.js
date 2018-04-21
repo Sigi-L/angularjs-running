@@ -57,7 +57,7 @@ app.factory('groupService', function ($log, $http, $q) {
     return async.promise;
 
   }
-  function createGroup(group, user) {
+  function saveGroup(group, user) {
     if (!group.gid) {
       group.gid = getGid();
       group.gcreatordId = user.uid;
@@ -122,7 +122,7 @@ app.factory('groupService', function ($log, $http, $q) {
     groups: groups,
     types: types,
     load: load,
-    createGroup: createGroup,
+    saveGroup: saveGroup,
     getGroupById: getGroupById,
     getUserGroups: getUserGroups,
     getUserAdmin: getUserAdmin

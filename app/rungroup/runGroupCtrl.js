@@ -4,7 +4,7 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
     $location.path("/");
     return;
   }
-  
+
   userService.load().then(function () {
     $scope.users = userService.users;
   })
@@ -14,6 +14,9 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
     $scope.types = groupService.types;
 
   })
+
+
+  var currUser = userService.getUser();
 
   $scope.invalidGroup = false;
 
@@ -26,15 +29,15 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
     $scope.group = groupService.groups[indexToDisplay];
   }
 
-  $scope.createGroup = function () {
-    var ret = groupService.createGroup($scope.group, userService.getUser());
+  $scope.saveGroup = function () {
+    var ret = groupService.saveGroup($scope.group, userService.getUser());
     if (ret) {
       // TODO success
       $location.path("/search");
     }
     else {
       // TODO error
-      alert("Error createGroup");
+      alert("Error saveGroup");
       $location.path("/about");
     }
   }
@@ -44,4 +47,12 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
     $location.path('/rungroup/' + $scope.groups.indexOf(group));
   }
 
+  $scope.isAdmin = function (group) {
+
+    if (group.gcreatordId === currUser.uid) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 });
