@@ -5,8 +5,8 @@
   <div class="alert alert-danger" ng-show="invalidGroup">
     <strong>Error!</strong> Invalid group data.
   </div>
-  <form>
-
+  <!-- <form class="needs-validation" novalidate> -->
+  <form ng-submit="saveGroup()">
     <!-- <legend>Group Data</legend> -->
     <fieldset ng-show="isAdmin(group)" class="clearfix">
       <legend>Admin Details</legend>
@@ -28,25 +28,25 @@
     <br>
 
 
-    <!-- TODO - add required -->
     <fieldset ng-disabled="!isAdminOrNew(group)" class="clearfix">
       <legend>Group Details</legend>
       <div class="form-group">
-        <label for="gname">Group Name:</label>
-        <input type="text" class="form-control" id="gname" ng-model="group.gname">
+        <label class="form-control-label" for="gname">Group Name:</label>
+        <input type="text" class="form-control" id="gname" ng-model="group.gname" required>
       </div>
+
       <div class="form-group">
         <label for="gtrainer">Manager:</label>
-        <input type="text" class="form-control" id="gtrainer" ng-model="group.gtrainer">
+        <input type="text" class="form-control" id="gtrainer" ng-model="group.gtrainer" required>
       </div>
 
       <div class="form-group">
         <label for="glocation">Area:</label>
-        <input type="text" class="form-control" id="garea" ng-model="group.glocation">
+        <input type="text" class="form-control" id="garea" ng-model="group.glocation" required>
       </div>
       <div class="form-group">
         <label for="gcity">City:</label>
-        <input type="text" class="form-control" id="gcity" ng-model="group.gcity">
+        <input type="text" class="form-control" id="gcity" ng-model="group.gcity" required>
       </div>
 
 
@@ -54,21 +54,22 @@
         <label for="gtype">Group Type:</label>
         <label for="running">Running</label>
         <input type="radio" ng-model="group.gtype" name="gtype" id="running" value="Running">
+        <!-- <input type="radio"  ng-checked="{{!group || group.gtype === 'running'}}" name="gtype" id="running" value="Running"> -->
         <label for="walking">Walking</label>
         <input type="radio" ng-model="group.gtype" name="gtype" id="walking" value="Walking">
       </div>
 
       <div class="form-group radio clearfix">
-        <label for="gage">Ages:</label>
+        <label for="gages">Ages:</label>
         <label for="adult">Adult</label>
-        <input type="radio" ng-model="group.gages" name="gage" id="adult" value="Adult">
+        <input type="radio" ng-model="group.gages" name="gages" id="adult" value="Adult">
         <label for="children">Children</label>
-        <input type="radio" ng-model="group.gages" name="gage" id="children" value="Children">
+        <input type="radio" ng-model="group.gages" name="gages" id="children" value="Children">
       </div>
 
       <div class="form-group">
         <label for="gdesc">Description</label>
-        <textarea class="form-control" id="gdesc" max-rows="20" ng-model="group.gdesc"></textarea>
+        <textarea class="form-control" id="gdesc" max-rows="20" ng-model="group.gdesc" required></textarea>
       </div>
 
     </fieldset>
@@ -85,7 +86,7 @@
 
     <fieldset ng-show="isAdminOrNew(group)" class="clearfix">
       <legend>Admin Actions</legend>
-      <button type="submit" class="btn btn-info text-left" ng-click="saveGroup()">Save</button>
+      <button type="submit" class="btn btn-info text-left">Save</button>
       <button type="reset" class="btn btn-info text-rigth">Reset</button>
     </fieldset>
   </form>

@@ -2,8 +2,8 @@
 app.controller('loginCtrl', function ($scope, userService, $log, $location) {
 
     $scope.invalidCredentails = false;
-    $scope.email = "nir@nir.com";
-    $scope.pwd = "123123";
+    $scope.email = "1@1";
+    $scope.pwd = "123";
 
 
     userService.load().then(function () {

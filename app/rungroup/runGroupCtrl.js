@@ -7,6 +7,7 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
 
   userService.load().then(function () {
     $scope.users = userService.users;
+
   })
 
   groupService.load().then(function () {
@@ -15,8 +16,14 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
 
   })
 
-
   var currUser = userService.getUser();
+  // $scope.newGname = "New Group";
+  // $scope.newGtrainer = "new trainer";
+  // $scope.newGlocation = "new location";
+  // $scope.newGcity = "new city";
+  // $scope.newGtype = "Running";
+  // $scope.newGages = "Children";
+  // $scope.newGdesc = "new desc";
 
   $scope.invalidGroup = false;
 
@@ -29,8 +36,26 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
     $scope.group = groupService.groups[indexToDisplay];
   }
 
+  // $scope.newGage = $scope.newGage ? $scope.newGage : "Children";
+  // $scope.newGtype = $scope.newGtype ? $scope.newGtype : "Running";
   $scope.saveGroup = function () {
+    // $scope.group.gname = "New";
+    // $scope.group.gtrainer = "New";
+    // $scope.group.glocation = "New";
+    // $scope.group.gcity = "New";
+    // $scope.group.gtype = "Running";
+    // $scope.group.gage = "Children";
+    // $scope.group.gdesc = "New";
+    if (!$scope.group.gtype) {
+      $scope.group.gtype = "Running";
+    }
+
+    if (!$scope.group.gages) {
+      $scope.group.gages = "Adult";
+    }
     var ret = groupService.saveGroup($scope.group, userService.getUser());
+    // $scope.group.gtype = $scope.newGtype;
+    // $scope.group.gage = $scope.newGage;
     if (ret) {
       // TODO success
       $location.path("/search");
@@ -41,7 +66,7 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
       $location.path("/about");
     }
   }
-$scope.showUserAction = groupService.isRegister($scope.group, userService.getUser());
+  $scope.showUserAction = groupService.isRegister($scope.group, userService.getUser());
 
   $scope.registerGroup = function () {
     // alert("TODO registerGroup");
@@ -56,7 +81,7 @@ $scope.showUserAction = groupService.isRegister($scope.group, userService.getUse
       $location.path("/about");
     }
   }
- 
+
   $scope.unregisterGroup = function () {
     // alert("TODO unregisterGroup");
     var ret = groupService.unregisterGroup($scope.group, userService.getUser());
