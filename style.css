@@ -17,6 +17,7 @@ body {
 
 form {
     width: 80%;
+    margin: auto;
     /* margin: auto; */
 }
 
@@ -53,28 +54,7 @@ legend {
 }
 
 
-.label1 {
-    max-width: 30%;
-    margin-right: 0.5em;
-    padding-top: 0.2em;
-    font-weight: bold;
-    display: inline-block;
-    margin: 5px;
-}
 
-.input1 {
-    /* display: inline-block; */
-    margin: 5px;
-    float: right;
-    width: 65%;
-}
-
-.input2 {
-    /* display: inline-block; */
-    margin: 5px;
-    float: right;
-    /* width: 65%; */
-}
 
 .table,
 th,
@@ -96,17 +76,3 @@ td {
 .radio input {
     float: none;
 }
-
- .mapstyle {
-    /* width:"200100%px"; */
-    /* height: "200px"; */
-    border: 0;
-} 
-
-/* .center {
-    margin: left;
-} */
-
-/* .selected {
-    border: 0.5em solid red;
-} */
