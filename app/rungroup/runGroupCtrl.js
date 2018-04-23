@@ -1,4 +1,4 @@
-app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeParams, userService, groupService) {
+app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeParams, $sce, userService, groupService) {
 
   if (!userService.isLoggedIn()) {
     $location.path("/");
@@ -13,19 +13,12 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
   groupService.load().then(function () {
     $scope.groups = groupService.groups;
     $scope.types = groupService.types;
-
   })
 
   var currUser = userService.getUser();
-  // $scope.newGname = "New Group";
-  // $scope.newGtrainer = "new trainer";
-  // $scope.newGlocation = "new location";
-  // $scope.newGcity = "new city";
-  // $scope.newGtype = "Running";
-  // $scope.newGages = "Children";
-  // $scope.newGdesc = "new desc";
-
   $scope.invalidGroup = false;
+
+
 
   var indexToDisplay = -1;
   if ($routeParams.index) {
@@ -36,16 +29,7 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
     $scope.group = groupService.groups[indexToDisplay];
   }
 
-  // $scope.newGage = $scope.newGage ? $scope.newGage : "Children";
-  // $scope.newGtype = $scope.newGtype ? $scope.newGtype : "Running";
   $scope.saveGroup = function () {
-    // $scope.group.gname = "New";
-    // $scope.group.gtrainer = "New";
-    // $scope.group.glocation = "New";
-    // $scope.group.gcity = "New";
-    // $scope.group.gtype = "Running";
-    // $scope.group.gage = "Children";
-    // $scope.group.gdesc = "New";
     if (!$scope.group.gtype) {
       $scope.group.gtype = "Running";
     }
@@ -53,12 +37,39 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
     if (!$scope.group.gages) {
       $scope.group.gages = "Adult";
     }
+
+
+    // Test data
+    // if (currUser.uid === 200) {
+    //   if (!$scope.group.gname) {
+    //     $scope.group.gname = "Default name";
+    //   }
+    //   if (!$scope.group.gtrainer) {
+    //     $scope.group.gtrainer = "Default trainer";
+    //   }
+    //   if (!$scope.group.glocation) {
+    //     $scope.group.glocation = "Namir 100";
+    //   }
+    //   if (!$scope.group.gcity) {
+    //     $scope.group.gcity = "Tel Aviv";
+    //   }
+    //   if (!$scope.group.gdesc) {
+    //     $scope.group.gdesc = "Default gdesc";
+    //   }
+    // }
+    // $scope.group.gname = "New";
+    // $scope.group.gtrainer = "New";
+    // $scope.group.glocation = "New";
+    // $scope.group.gcity = "New";
+    // $scope.group.gtype = "Running";
+    // $scope.group.gage = "Children";
+    // $scope.group.gdesc = "New";
+
+
     var ret = groupService.saveGroup($scope.group, userService.getUser());
-    // $scope.group.gtype = $scope.newGtype;
-    // $scope.group.gage = $scope.newGage;
     if (ret) {
       // TODO success
-      $location.path("/search");
+      $location.path("/mygroups");
     }
     else {
       // TODO error
@@ -125,5 +136,13 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
     }
   }
 
-
+  $scope.showMap = function (group) {
+    if (group && (group.glocation || group.gcity)) {
+      var mapSearch = group.glocation + " " + group.gcity;
+      $scope.mapURL = $sce.trustAsResourceUrl("https://www.google.com/maps/embed/v1/search?key=AIzaSyBSil-hbUge7NwSpdgLL6zHWNgJfQzlHcs&q=" + mapSearch);
+      return true;
+    } else {
+      return false;
+    }
+  }
 });

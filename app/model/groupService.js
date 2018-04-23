@@ -12,7 +12,6 @@ app.factory('groupService', function ($log, $http, $q) {
     this.gtrainer = group.gtrainer;
     this.gdesc = group.gdesc;
     this.gmembers = group.gmembers;
-    // this.userGroups = [];
   }
 
   var types = [{

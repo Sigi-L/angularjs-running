@@ -8,7 +8,7 @@
   <!-- <form class="needs-validation" novalidate> -->
   <form ng-submit="saveGroup()">
     <!-- <legend>Group Data</legend> -->
-    <fieldset ng-show="isAdmin(group)" class="clearfix">
+    <fieldset ng-show="isAdmin(group)" class="clearfix fieldsetb">
       <legend>Admin Details</legend>
       <div class="form-group">
         <label for="gid">Group ID:</label>
@@ -28,7 +28,7 @@
     <br>
 
 
-    <fieldset ng-disabled="!isAdminOrNew(group)" class="clearfix">
+    <fieldset ng-disabled="!isAdminOrNew(group)" class="clearfix fieldsetb">
       <legend>Group Details</legend>
       <div class="form-group">
         <label class="form-control-label" for="gname">Group Name:</label>
@@ -40,15 +40,16 @@
         <input type="text" class="form-control" id="gtrainer" ng-model="group.gtrainer" required>
       </div>
 
-      <div class="form-group">
-        <label for="glocation">Area:</label>
-        <input type="text" class="form-control" id="garea" ng-model="group.glocation" required>
-      </div>
+
       <div class="form-group">
         <label for="gcity">City:</label>
         <input type="text" class="form-control" id="gcity" ng-model="group.gcity" required>
       </div>
 
+      <div class="form-group">
+        <label for="glocation">Location:</label>
+        <input type="text" class="form-control" id="garea" ng-model="group.glocation" required>
+      </div>
 
       <div class="form-group radio clearfix">
         <label for="gtype">Group Type:</label>
@@ -75,7 +76,18 @@
     </fieldset>
     <br>
 
-    <fieldset ng-show="!isAdminOrNew(group)" class="clearfix">
+    <fieldset ng-show="showMap(group)" class="clearfix fieldsetb">
+      <legend>Maps</legend>
+      <div>
+        <!-- width="200" height="200" -->
+        <!-- <iframe iframe-set-dimensions-onload frameborder="0" style="border:0" ng-src="{{mapURL}}" allowfullscreen> -->
+        <iframe width="100%" height="100%" frameborder="0" style="border:0" ng-src="{{mapURL}}" allowfullscreen>
+        </iframe>
+      </div>
+    </fieldset>
+    <br>
+
+    <fieldset ng-show="!isAdminOrNew(group)" class="clearfix fieldsetb">
       <legend>User Actions</legend>
       <div class="center">
         <button ng-hide="showUserAction" type="submit" class="btn btn-info" ng-click="registerGroup()">Register</button>
@@ -84,7 +96,7 @@
     </fieldset>
     <br>
 
-    <fieldset ng-show="isAdminOrNew(group)" class="clearfix">
+    <fieldset ng-show="isAdminOrNew(group)" class="clearfix fieldsetb">
       <legend>Admin Actions</legend>
       <button type="submit" class="btn btn-info text-left">Save</button>
       <button type="reset" class="btn btn-info text-rigth">Reset</button>

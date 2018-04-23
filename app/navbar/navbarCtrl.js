@@ -11,13 +11,9 @@ app.controller('navbarCtrl', function ($scope, userService, $location) {
         $scope.usertitle = userService.getUser().usertitle();
     })
 
-
     $scope.logout = function () {
-        // $scope.mygroups.splice(0, mygroups.length);
-        // $scope.myadmin.splice(0, mygroups.length);
         userService.logout();
         $location.path('/');
     }
-
 
 })
