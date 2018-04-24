@@ -1,22 +1,9 @@
 [
     {
-        "uid": "400",
-        "uemail": "4@4",
-        "upassword": "123",
-        "ufname": "Nir",
-        "ulname": "Channes",
-        "umygroups": [
-            3
-        ],
-        "umyadmin": [
-            2
-        ]
-    },
-    {
         "uid": "100",
         "uemail": "1@1",
         "upassword": "123",
-        "ufname": "sigi",
+        "ufname": "Sigi",
         "ulname": "Lahiany",
         "umygroups": [
             2
@@ -25,6 +12,15 @@
             1,
             3
         ]
+    },
+    {
+        "uid": "200",
+        "uemail": "2@2",
+        "upassword": "123",
+        "ufname": "Shira",
+        "ulname": "Levi",
+        "umygroups": [],
+        "umyadmin": []
     },
     {
         "uid": "300",
@@ -37,5 +33,19 @@
             3
         ],
         "umyadmin": []
+    },
+    {
+        "uid": "400",
+        "uemail": "4@4",
+        "upassword": "123",
+        "ufname": "Nir",
+        "ulname": "Channes",
+        "umygroups": [
+            3
+        ],
+        "umyadmin": [
+            2,
+            4
+        ]
     }
 ]

@@ -8,7 +8,7 @@
     "gages": "Adult",
     "gtype": "Running",
     "gtrainer": "Yaron",
-    "gdesc": "Hello SprintTeam",
+    "gdesc": "Sun + Wed 19:00",
     "gmembers": [
       300
     ]
@@ -22,8 +22,10 @@
     "gages": "Adult",
     "gtype": "Walking",
     "gtrainer": "Dina",
-    "gdesc": "Hello Run Away",
-    "gmembers": [100]
+    "gdesc": "Sunday 17:00",
+    "gmembers": [
+      100
+    ]
   },
   {
     "gid": 3,
@@ -34,10 +36,22 @@
     "gages": "Adult",
     "gtype": "Running",
     "gtrainer": "Tal",
-    "gdesc": "Hello Turrers",
+    "gdesc": "Sun + Wed 18:00",
     "gmembers": [
       300,
       400
     ]
+  },
+  {
+    "gid": 4,
+    "gcreatordId": "400",
+    "gname": "Run Away",
+    "glocation": "Park Leumi",
+    "gcity": "Ramat Gan",
+    "gages": "Children",
+    "gtype": "Walking",
+    "gtrainer": "Dina",
+    "gdesc": "Sunday 17:00",
+    "gmembers": []
   }
 ]

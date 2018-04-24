@@ -25,8 +25,13 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
     indexToDisplay = parseInt($routeParams.index);
   }
 
+
+  $scope.creatorName = "";
+  $scope.membersDetails = "";
   if (indexToDisplay > -1) {
     $scope.group = groupService.groups[indexToDisplay];
+    $scope.creatorName = groupService.getCreatorName($scope.group);
+    $scope.membersDetails = groupService.geMembersData($scope.group);
   }
 
   $scope.saveGroup = function () {
@@ -66,10 +71,10 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
     // $scope.group.gdesc = "New";
 
 
-    var ret = groupService.saveGroup($scope.group, userService.getUser());
-    if (ret) {
-      // TODO success
-      $location.path("/mygroups");
+    var retGroup = groupService.saveGroup($scope.group, userService.getUser());
+    if (retGroup) {
+      $location.path('/rungroup/' + $scope.groups.indexOf(retGroup));
+      alert("The group was saved successfully");
     }
     else {
       // TODO error
@@ -135,6 +140,15 @@ app.controller("runGroupCtrl", function ($scope, $http, $log, $location, $routeP
       return false;
     }
   }
+
+  $scope.gidExist = function (group) {
+    if ( group && group.gid) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
 
   $scope.showMap = function (group) {
     if (group && (group.glocation || group.gcity)) {

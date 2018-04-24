@@ -12,21 +12,6 @@ app.factory('groupService', function ($log, $http, $q, userService) {
     this.gtrainer = group.gtrainer;
     this.gdesc = group.gdesc;
     this.gmembers = group.gmembers;
-
-    // this.creatorName = this.getCreatorName();
-    this.getCreatorName = function () {
-      return userService.getUserById(this.gcreatordId).username();
-    };
-    this.membersData = function () {
-      var mData = [];
-      if (this.gmembers) {
-        for (var i = 0; i < this.gmembers.length; i++) {
-          var member = userService.getUserById(this.gmembers[i].toString());
-          mData.push(member.usertitle());
-        }
-      }
-      return mData.toString();
-    };
   }
 
   var types = [{
@@ -79,7 +64,7 @@ app.factory('groupService', function ($log, $http, $q, userService) {
       user.umyadmin.push(group.gid);
       groups.push(group);
     }
-    return true;
+    return group;
   }
 
   function isRegister(group, user) {
@@ -150,18 +135,33 @@ app.factory('groupService', function ($log, $http, $q, userService) {
     return mdadm;
   }
 
-  // function setUserDara(uid) {
-  //   mygroups.splice(0, mygroups.length);
-  //   myadmin.splice(0, mygroups.length);
-  //   for (var i = 0; i < groups.length; i++) {
-  //     if (groups[i].gcreatordId === uid) {
-  //       mygroups.push(new Group(groups[i]));
-  //     }
-  //     if (groups[i].gmembers.includes(uid)) {
-  //       myadmin.push(new Group(groups[i]));
-  //     }
-  //   }
-  // }
+  function getCreatorName(group) {
+    var name = "";
+    if (group) {
+      name = userService.getUserById(group.gcreatordId).username();
+    }
+    return name;
+  }
+
+
+
+  function geMembersData(group) {
+
+    var mData = [];
+    if (group && group.gmembers.length > 0) {
+      for (var i = 0; i < group.gmembers.length; i++) {
+        var member = userService.getUserById(group.gmembers[i].toString());
+        mData.push(member.usertitle());
+      }
+      return mData.toString();
+    } else {
+      return "No members yet...";
+    }
+
+
+  }
+
+
 
   return {
     groups: groups,
@@ -173,7 +173,9 @@ app.factory('groupService', function ($log, $http, $q, userService) {
     getUserAdmin: getUserAdmin,
     registerGroup: registerGroup,
     unregisterGroup: unregisterGroup,
-    isRegister: isRegister
+    isRegister: isRegister,
+    getCreatorName: getCreatorName,
+    geMembersData: geMembersData
   }
 
 })
