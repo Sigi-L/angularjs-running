@@ -1,7 +1,7 @@
 [
   {
     "gid": 1,
-    "gcreatordId": "200",
+    "gcreatordId": "100",
     "gname": "SprintTeam",
     "glocation": "Hayarkon Park",
     "gcity": "Tel Aviv",
@@ -23,11 +23,11 @@
     "gtype": "Walking",
     "gtrainer": "Dina",
     "gdesc": "Hello Run Away",
-    "gmembers": []
+    "gmembers": [100]
   },
   {
     "gid": 3,
-    "gcreatordId": "200",
+    "gcreatordId": "100",
     "gname": "Runners",
     "glocation": "Ben Gurion 15",
     "gcity": "Jerusalem",

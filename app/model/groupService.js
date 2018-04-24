@@ -1,4 +1,4 @@
-app.factory('groupService', function ($log, $http, $q) {
+app.factory('groupService', function ($log, $http, $q, userService) {
   var groups = [];
 
   function Group(group) {
@@ -12,6 +12,21 @@ app.factory('groupService', function ($log, $http, $q) {
     this.gtrainer = group.gtrainer;
     this.gdesc = group.gdesc;
     this.gmembers = group.gmembers;
+
+    // this.creatorName = this.getCreatorName();
+    this.getCreatorName = function () {
+      return userService.getUserById(this.gcreatordId).username();
+    };
+    this.membersData = function () {
+      var mData = [];
+      if (this.gmembers) {
+        for (var i = 0; i < this.gmembers.length; i++) {
+          var member = userService.getUserById(this.gmembers[i].toString());
+          mData.push(member.usertitle());
+        }
+      }
+      return mData.toString();
+    };
   }
 
   var types = [{

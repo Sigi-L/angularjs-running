@@ -70,7 +70,7 @@ app.controller("mygroupsCtrl", function ($scope, $http, $log, $location, userSer
   // Open group details
   $scope.openGroup = function (group) {
     $location.path('/rungroup/' + $scope.groups.indexOf(group));
-  }
+   }
 
   $scope.sortProp = "";
   $scope.changeSort = function (propName) {
@@ -80,4 +80,10 @@ app.controller("mygroupsCtrl", function ($scope, $http, $log, $location, userSer
   $scope.changeSort = function (propName) {
     $scope.sortProp = propName;
   }
+
+  // $scope.creatordId= creatordIdGet(group);
+  // $scope.creatordIdGet = function (group) {
+  //   // if (!group || (group && group.gcreatordId === currUser.uid) || (group && !group.gid)) {
+  //     return userService.getUserById(group.gcreatordId).uname;
+  // }
 });

@@ -19,7 +19,7 @@
   <table class="table">
     <caption>My Groups</caption>
     <tr>
-      <th ng-click="changeSort('gid')">gid</th>
+      <th ng-click="changeSort('gid')">Group ID</th>
       <!-- <th ng-click="changeSort('gcreatordId')">gcreatordId</th> -->
       <th ng-click="changeSort('gname')">Name</th>
       <th ng-click="changeSort('glocation')">Location</th>
@@ -45,19 +45,19 @@
       <!-- <h3>My Admin</h3> -->
       <caption>My Admin</caption>
       <tr>
-        <th ng-click="changeSort('gid')">gid</th>
-        <th ng-click="changeSort('gcreatordId')">gcreatordId</th>
-        <th ng-click="changeSort('gname')">gname</th>
-        <th ng-click="changeSort('glocation')">glocation</th>
-        <th ng-click="changeSort('gcity')">gcity</th>
-        <th ng-click="changeSort('gages')">gages</th>
-        <th ng-click="changeSort('gtype')">gtype</th>
-        <th ng-click="changeSort('gtrainer')">gtrainer</th>
-        <th ng-click="changeSort('gmembers')">gmembers</th>
+        <th ng-click="changeSort('gid')">Group ID</th>
+        <!-- <th ng-click="changeSort('gcreatordId')">gcreatordId</th> -->
+        <th ng-click="changeSort('gname')">Name</th>
+        <th ng-click="changeSort('glocation')">Location</th>
+        <th ng-click="changeSort('gcity')">City</th>
+        <th ng-click="changeSort('gages')">Ages</th>
+        <th ng-click="changeSort('gtype')">Type</th>
+        <th ng-click="changeSort('gtrainer')">Trainer</th>
+        <th ng-click="changeSort('gmembers')">Members</th>
       </tr>
       <tr ng-repeat="group in myadmin | filter: filterData | orderBy: sortProp : false track by group.gid" ng-click="openGroup(group)">
         <td>{{group.gid}}</td>
-        <td>{{group.gcreatordId}}</td>
+        <!-- <td>{{group.creatorName()}}</td> -->
         <td>{{group.gname}}</td>
         <td>{{group.glocation}}</td>
         <td>{{group.gcity}}</td>
@@ -65,6 +65,7 @@
         <td>{{group.gtype}}</td>
         <td>{{group.gtrainer}}</td>
         <td>{{group.gmembers}}</td>
+        <!-- <td>{{group.membersData()}}</td> -->
       </tr>
     </table>
 

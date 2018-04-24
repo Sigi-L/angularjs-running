@@ -1,8 +1,8 @@
 [
     {
         "uid": "400",
-        "uemail": "nir@nir.com",
-        "upassword": "123123",
+        "uemail": "4@4",
+        "upassword": "123",
         "ufname": "Nir",
         "ulname": "Channes",
         "umygroups": [
@@ -13,12 +13,14 @@
         ]
     },
     {
-        "uid": "200",
+        "uid": "100",
         "uemail": "1@1",
         "upassword": "123",
         "ufname": "sigi",
-        "ulname": "sigi",
-        "umygroups": [],
+        "ulname": "Lahiany",
+        "umygroups": [
+            2
+        ],
         "umyadmin": [
             1,
             3
@@ -26,10 +28,10 @@
     },
     {
         "uid": "300",
-        "uemail": "john@doe.com",
-        "upassword": "johnjohn",
-        "ufname": "John",
-        "ulname": "Doe",
+        "uemail": "3@3",
+        "upassword": "123",
+        "ufname": "Dan",
+        "ulname": "Cohen",
         "umygroups": [
             1,
             3

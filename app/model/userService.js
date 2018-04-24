@@ -1,5 +1,5 @@
 
-app.factory("userService", function ($http, $log, $q, groupService) {
+app.factory("userService", function ($http, $log, $q) {
 
     var users = [];
 
@@ -55,8 +55,6 @@ app.factory("userService", function ($http, $log, $q, groupService) {
         for (var i = 0; i < users.length; i++) {
             if (users[i].uemail === email && users[i].upassword === pwd) {
                 activeUser = new User(users[i]);
-                // TODO setUserDara
-                // groupService.setUserDara(activeUser.uid);
                 return true;
             }
         }
@@ -84,7 +82,6 @@ app.factory("userService", function ($http, $log, $q, groupService) {
 
     function logout() {
         activeUser = null;
-        // groupService.mygroups.splice(0, mygroups.length);
         // groupService.myadmin.splice(0, mygroups.length);
     }
 

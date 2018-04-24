@@ -10,28 +10,34 @@
     <!-- <legend>Group Data</legend> -->
     <fieldset ng-show="isAdmin(group)" class="clearfix fieldsetb">
       <legend>Admin Details</legend>
-      <div class="form-group">
-        <label for="gid">Group ID:</label>
-        <input readonly type="text" class="form-control" id="gid" ng-model="group.gid">
-      </div>
-
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="gcreatordId">gcreatordId:</label>
         <input readonly type="text" class="form-control" id="gcreatordId" ng-model="group.gcreatordId">
-      </div>
+      </div> -->
 
-      <div class="form-group">
+      <members-directive></members-directive>
+       <div class="form-group">
         <label for="gid">gmembers:</label>
         <input readonly type="text" class="form-control" id="gmembers" ng-model="group.gmembers">
       </div>
-    </fieldset>
+    </fieldset> 
+      <!-- <div class="form-group">
+        <label for="gid">gmembers:</label>
+        <input readonly type="text" class="form-control" id="gmembers" ng-model="group.membersData()">
+      </div>
+    </fieldset> -->
     <br>
 
+    <!-- <input hidden type="text" class="form-control" id="gcreatordId" ng-model="group.creatorName"> -->
 
     <fieldset ng-disabled="!isAdminOrNew(group)" class="clearfix fieldsetb">
       <legend>Group Details</legend>
 
-
+      <div class="form-group">
+          <label for="gid">Group ID:</label>
+          <input readonly type="text" class="form-control" id="gid" ng-model="group.gid">
+        </div>
+  
       <!-- <div class="form-group row">
         <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Email</label>
         <div class="col-sm-10">
