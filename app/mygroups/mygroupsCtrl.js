@@ -56,11 +56,12 @@ app.controller("mygroupsCtrl", function ($scope, $http, $log, $location, userSer
 
 
 
-
+  
 
   $scope.filterData = function (group) {
     if ((!$scope.selectedType || group.gtype.toLowerCase().includes($scope.selectedType.name.toLowerCase())) &&
-      (!$scope.searchCity || group.gcity.toLowerCase().includes($scope.searchCity.toLowerCase()))) {
+    (!$scope.searchCity || group.gcity.toLowerCase().includes($scope.searchCity.toLowerCase())) &&
+      (!$scope.searchLocation || group.glocation.toLowerCase().includes($scope.searchLocation.toLowerCase()))) {
       return true;
     } else {
       return false;

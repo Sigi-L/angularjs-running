@@ -4,12 +4,12 @@ app.controller("searchCtrl", function ($scope, $http, $log, $location, userServi
     $location.path("/");
     return;
   }
-  
-  // Initializing searchText so it won't be undefined before the user enters text
+
+  // Initializing
   $scope.searchCity = "";
   $scope.searchLocation = "";
-  $scope.selectedType = ""; // $scope.types[0];
-
+  $scope.selectedType = "";
+  $scope.sortProp = "";
 
   userService.load().then(function () {
     $scope.users = userService.users;
@@ -22,19 +22,18 @@ app.controller("searchCtrl", function ($scope, $http, $log, $location, userServi
 
   $scope.filterData = function (group) {
     if ((!$scope.selectedType || group.gtype.toLowerCase().includes($scope.selectedType.name.toLowerCase())) &&
-      (!$scope.searchCity || group.gcity.toLowerCase().includes($scope.searchCity.toLowerCase()))) {
+      (!$scope.searchCity || group.gcity.toLowerCase().includes($scope.searchCity.toLowerCase())) &&
+      (!$scope.searchLocation || group.glocation.toLowerCase().includes($scope.searchLocation.toLowerCase()))) {
       return true;
     } else {
       return false;
     }
   }
 
-  // Open group details
   $scope.openGroup = function (group) {
     $location.path('/rungroup/' + $scope.groups.indexOf(group));
   }
 
-  $scope.sortProp = "";
   $scope.changeSort = function (propName) {
     $scope.sortProp = propName;
   }

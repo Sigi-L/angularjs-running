@@ -1,20 +1,10 @@
 <running-navbar></running-navbar>
 
 <div class="container">
-  <!-- <h1> My Groups</h1> -->
 
-  <div>
-    <label for="searchCity">City:</label>
-    <input type="text" name="searchCity" id="searchCity" ng-model="searchCity">
-    <!--<select ng-model="selectedType" ng-options="type.name for type in types track by type.value"></select>-->
-    <!--<p>selected types is : {{selectedType}}</p>-->
-    <!--<p> name of selected type is : {{selectedType.name}} </p>-->
-    <br>
-    <label for="stype">Type:</label>
-    <select ng-model="selectedType" ng-options="type.label for type in types" name="stype" id="stype">
-    </select>
-  </div>
-<br>
+    <runfilters-directive></runfilters-directive>
+
+  <br>
 
   <table class="table">
     <caption>My Groups</caption>
